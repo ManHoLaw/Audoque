@@ -1,6 +1,6 @@
 {
   "name": "audoque",
-  "private": true,
+  "private": false,
   "homepage": "http://ManHoLaw.github.io/AuDoque",
   "version": "0.0.0",
   "type": "module",
