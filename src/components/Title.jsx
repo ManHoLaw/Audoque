@@ -6,12 +6,12 @@ const Title = () => {
         <nav class='flex w-full screen-max-width'>
             <div class='flex item-baseline max-sm:justify-end max-sm:flex-1 max-sm:hidden'>
                 <button class='cursor-pointer rounded-3x1'>
-                    <img src={bannerImg} alt='Au_banner' width={450}/>
+                    <img src={bannerImg} alt='Au_banner' width={450} class='bg-pink-100'/>
                 </button>
             </div>
             <div class='flex item-baseline max-sm:justify-end sm:hidden max-sm: flex-2'>
                 <button class='cursor-pointer rounded-3x1'>
-                    <img src={bannersmallImg} alt='Au_banner' width={1000} />
+                    <img src={bannersmallImg} alt='Au_banner' width={1000} class='bg-pink-100'/>
                 </button>
             </div>
             
