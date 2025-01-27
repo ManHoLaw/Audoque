@@ -1,0 +1,1 @@
+export const navLists = ["Chef's Menu", "Cake", "Roll"];

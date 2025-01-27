@@ -1,15 +1,6 @@
 @import 'tailwindcss';
 
-@theme {
-  --color-pink-200: #f3cbbf
-}
+.control-btn {
+  @apply ml-4 p-4 rounded-full backdrop-blur bg-white 
 
-/* body {
-  color: white;
-  width: 100dvw;
-  overflow-x: hidden;
-  height: 100%;
-  background: #f0b8b8;
-  border-color: #3b3b3b;
-  user-select: none;
-} */
+}

@@ -2,7 +2,7 @@ import { bagImg, bannerImg, bannersmallImg, searchImg } from "../utils"
 
 const Title = () => {
   return (
-    <header class='w-full py-5 sm:px-10 px-5 flex justify-between items-center'>
+    <header class='w-full py-5 sm:px-10 px-5 flex justify-evenly'>
         <nav class='flex w-full screen-max-width'>
             <div class='flex item-baseline max-sm:justify-end max-sm:flex-1 max-sm:hidden'>
                 <button class='cursor-pointer rounded-3x1'>
