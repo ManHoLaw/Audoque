@@ -41,7 +41,7 @@ const Navbar = () => {
       }, []);
   return (
     <h1 classs='flex min-h-3/4'>
-        <div class="flex flex-1 item-baseline max-md:gap-7 justify-center text-2xl gap-40">
+        <div class="flex flex-1 item-baseline max-md:gap-7 max-sm:text-base justify-center text-2xl gap-40">
             {navLists.map((nav,i) => (
                 <button  class='menu-item cursor-pointe relative px-4 py-2' key={i}>
                     <div id="menu-content">
