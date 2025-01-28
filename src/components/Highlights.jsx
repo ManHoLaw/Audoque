@@ -1,23 +1,23 @@
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
-// import { rightImg, watchImg } from "../utils"
-import VideoCarousel from "./VideoCarousel"
+import { cakes } from "../constants"
 
 const Highlights = () => {
-    // useGSAP(() => {
-    //     gsap.to("#title", {opacity:1, y: 0,})
-    //     gsap.to(".link", {opacity: 1, y: 0, duration:1, stagger: 0.25})
-    // }, [])
   return (
     <section class="w-screen overflow-hidden h-full">
-        <div class="screen-max-width">
-            <div class="mb-12 w-full md:flex items-end justify-between">
-                <h1>Get the highlights.</h1>
-                <div class="flex flex-wrap items-end">
-                </div>
-            </div>
-
-            <VideoCarousel />
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 p-10">
+              {cakes.map((cake) => (
+                <button key={cake.id} class='rounded-lg overflow-hidden justify-center items-center cursor-pointer flex flex-col'>
+                  <img 
+                    src={cake.img}
+                    alt={cake.title}
+                    class='h-auto max-sm:object-cover flex max-w-100 justify-center w-full'
+                  />
+                  <div class='p-4'>
+                    <h3 class='flex text-lg '>{cake.title}</h3>
+                  </div>
+                </button>
+              ))}
         </div>
     </section>
   )

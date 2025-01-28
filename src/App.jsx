@@ -4,7 +4,7 @@ import Title from "./components/Title"
 
 const App = () => {
   return (
-    <main class='bg-[#dbafaf] h-screen'>
+    <main class='bg-[#dbafaf]'>
       <Title />
       <Navbar />
       <Highlights />

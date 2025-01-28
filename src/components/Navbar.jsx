@@ -1,6 +1,5 @@
 import gsap from 'gsap';
 import { navLists } from '../constants';
-import { useGSAP } from '@gsap/react';
 import { useEffect } from 'react';
 
 const Navbar = () => {
@@ -11,7 +10,7 @@ const Navbar = () => {
             button.addEventListener('mouseenter', () => {
                 gsap.to(button, {
                 backgroundPosition: "100% 0%",
-                color: "orange",
+                color: '#6d8d95',
                 ease: "power1.inOut",
                 duration: 0.5,
                 });
@@ -40,14 +39,14 @@ const Navbar = () => {
         });
       }, []);
   return (
-    <h1 classs='flex min-h-3/4'>
-        <div class="flex flex-1 item-baseline max-md:gap-7 max-sm:text-base justify-center text-2xl gap-40">
+    <h1 classs=''>
+        <div class="flex flex-1 item-baseline max-md:gap-5 max-sm:text-base justify-center text-xl gap-40 flex-wrap">
             {navLists.map((nav,i) => (
                 <button  class='menu-item cursor-pointe relative px-4 py-2' key={i}>
                     <div id="menu-content">
                         {nav}
                     </div>
-                    <div className="underline absolute bottom-0 left-0 h-1 w-full bg-[orange] scale-x-0 origin-left transition-all duration-500 ease-out"/>
+                    <div class="underline absolute bottom-0 left-0 h-0.5 w-full bg-[#4e5f63] scale-x-0 origin-left transition-all duration-500 ease-out rounded"/>
                 </button>
             ))}
         </div>
