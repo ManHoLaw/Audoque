@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 import { navLists } from '../constants';
 import { useEffect } from 'react';
+import Highlights from './Highlights';
 
 const Navbar = () => {
     useEffect(() => {
@@ -40,18 +41,17 @@ const Navbar = () => {
       }, []);
   return (
     <h1 classs=''>
-        <div class="flex flex-1 item-baseline max-md:gap-5 max-sm:text-base justify-center text-xl gap-40 flex-wrap">
+        <div class="flex flex-1 item-baseline max-md:gap-5 max-sm:text-48px justify-center item-center text-xl gap-20">
             {navLists.map((nav,i) => (
-                <button  class='menu-item cursor-pointe relative px-4 py-2' key={i}>
-                    <div id="menu-content">
+                <a class='menu-item cursor-pointer relative px-4 py-2 w-1/8' key={i}>
+                    <div id="menu-content" class='flex justify-center'>
                         {nav}
                     </div>
                     <div class="underline absolute bottom-0 left-0 h-0.5 w-full bg-[#4e5f63] scale-x-0 origin-left transition-all duration-500 ease-out rounded"/>
-                </button>
+                </a>
             ))}
         </div>
     </h1>
-    
   )
 }
 

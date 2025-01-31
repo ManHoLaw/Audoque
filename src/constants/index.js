@@ -15,8 +15,8 @@ export const cakes = [
     {
         id:2,
         chefselection: true,
-        type: 'cake',
-        title: 'Matcha Whole cake',
+        type: 'roll',
+        title: 'Matcha roll',
         img: machacakeImg
     },
     {
@@ -43,8 +43,8 @@ export const cakes = [
     {
         id:6,
         chefselection: false,
-        type: 'cake',
-        title: 'Matcha Whole cake',
+        type: 'roll',
+        title: 'Matcha roll',
         img: machacakeImg
     },
     {
@@ -64,8 +64,8 @@ export const cakes = [
     {
         id:9,
         chefselection: false,
-        type: 'cake',
-        title: 'Matcha Whole cake',
+        type: 'roll',
+        title: 'Matcha roll',
         img: machacakeImg
     },
 ];
