@@ -1,4 +1,4 @@
-export const navLists = ["Chef's Menu", "Cake", "Roll"];
+export const navLists = ["Chef's Selection", "Cake", "Roll"];
 
 import { 
     machacakeImg,
@@ -7,65 +7,65 @@ import {
 export const cakes = [
     {
         id:1,
-        chefselection: true,
+        chefSelection: true,
         type: 'cake',
         title: 'Matcha Whole cake',
         img: machacakeImg
     },
     {
         id:2,
-        chefselection: true,
+        chefSelection: true,
         type: 'roll',
         title: 'Matcha roll',
         img: machacakeImg
     },
     {
         id:3,
-        chefselection: false,
+        chefSelection: false,
         type: 'cake',
-        title: 'Matcha Whole cake',
+        title: 'Chocolate Whole cake',
         img: machacakeImg
     },
     {
         id:4,
-        chefselection: false,
+        chefSelection: false,
         type: 'cake',
-        title: 'Matcha Whole cake',
+        title: 'Strawberry Whole cake',
         img: machacakeImg
     },
     {
         id:5,
-        chefselection: false,
+        chefSelection: false,
         type: 'cake',
-        title: 'Matcha Whole cake',
+        title: 'Coffee Whole cake',
         img: machacakeImg
     },
     {
         id:6,
-        chefselection: false,
+        chefSelection: true,
         type: 'roll',
-        title: 'Matcha roll',
+        title: 'Coffee roll',
         img: machacakeImg
     },
     {
         id:7,
-        chefselection: false,
+        chefSelection: false,
         type: 'cake',
-        title: 'Matcha Whole cake',
+        title: 'Black Sesame Whole cake',
         img: machacakeImg
     },
     {
         id:8,
-        chefselection: false,
+        chefSelection: false,
         type: 'cake',
-        title: 'Matcha Whole cake',
+        title: '.. Whole cake',
         img: machacakeImg
     },
     {
         id:9,
-        chefselection: false,
+        chefSelection: false,
         type: 'roll',
-        title: 'Matcha roll',
+        title: 'Chocolate roll',
         img: machacakeImg
     },
 ];

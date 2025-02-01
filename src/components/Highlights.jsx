@@ -1,8 +1,7 @@
-import { useGSAP } from "@gsap/react"
-import gsap from "gsap"
+
 import { cakes } from "../constants"
 
-const Highlights = () => {
+const Highlights = ({selection}) => {
   return (
     <section class="flex justify-center overflow-hidden h-full">
         <div className="w-3/4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 content-evenly gap-4 py-10">

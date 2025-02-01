@@ -5,12 +5,13 @@ import Footer from "./components/Footer"
 import Logo from "./components/Logo"
 
 const App = () => {
+  const [selection, setSelection] = useState(null);
   return (
     <main class='bg-[#dbafaf]'>
       <Title />
       <Logo />
-      <Navbar />
-      <Highlights />
+      <Navbar selection={selection} setSelection={setSelection} />
+      <Highlights selection={selection} />
       <Footer />
     </main>
     )
