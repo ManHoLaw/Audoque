@@ -1,6 +1,6 @@
 import gsap from 'gsap';
 import { navLists } from '../constants';
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useCallback } from 'react';
 
 const Navbar = ({selection, setSelection, isSidebarOpen, setIsSidebarOpen}) => {
 
@@ -20,7 +20,6 @@ const Navbar = ({selection, setSelection, isSidebarOpen, setIsSidebarOpen}) => {
         ease: 'power1.out',
         });
     }, [selection]); 
-
 
     const handleMouseLeave = useCallback((index, button) => {
         // Only reset the button if it's not selected
@@ -68,11 +67,11 @@ const Navbar = ({selection, setSelection, isSidebarOpen, setIsSidebarOpen}) => {
     }, [selection]);
 
   return (
-    <section class="relative flex justify-center items-center w-full">
+    <section class="bg-[#dbafaf] relative flex justify-center items-center w-full">
         {isSidebarOpen && (
-            <div class="fixed inset-0 bg-gray-900/50 flex justify-start">
-                <div class="bg-white w-64 h-full p-5 shadow-lg">
-                    <button class="mb-5" onClick={() => setIsSidebarOpen(false)}>Close</button>
+            <button class="fixed inset-0 bg-gray-900/50 flex justify-start" onClick={()=> setIsSidebarOpen(false)}>
+                <div class="bg-white w-64 h-full p-5 shadow-lg" onClick={(e)=>e.stopPropagation()}>
+                    <button class="flex mb-5 justify-start" onClick={() => setIsSidebarOpen(false)}>Close</button>
                     {navLists.map((nav, i) => (
                     <button
                         key={i}
@@ -81,14 +80,14 @@ const Navbar = ({selection, setSelection, isSidebarOpen, setIsSidebarOpen}) => {
                         }`}
                         onClick={() => {
                         handleClick(i);
-                        setIsSidebarOpen(false); 
+                        // setIsSidebarOpen(false); 
                         }}
                     >
                         {nav}
                     </button>
                     ))}
                 </div>
-            </div>
+            </button>
         )}
         <div class={`${isSidebarOpen === true ? 'hidden' : 'grid'} max-sm:hidden sm:grid-flow-col auto-cols-fr max-md:gap-5 max-sm:text-48px text-xl gap-25 `}>
             {navLists.map((nav, i) => (

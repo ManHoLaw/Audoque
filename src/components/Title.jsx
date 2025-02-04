@@ -9,7 +9,7 @@ const Title = ({isSidebarOpen, setIsSidebarOpen}) => {
     <header class=''>
         <nav class='w-full screen-max-width'>
             <nav class='relative w-full'>
-                <div class='sm:hidden flex justify-between items-center p-4'>
+                <div class='fixed sm:hidden flex justify-between items-center p-4'>
                     <button class='cursor-pointer' onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
                         <Menu size={20} />    
                     </button>  

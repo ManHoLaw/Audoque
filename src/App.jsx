@@ -9,13 +9,19 @@ const App = () => {
   const [selection, setSelection] = useState(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   return (
-    <main class='bg-[#dbafaf]'>
-      <Title isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen}/>
-      <Logo />
-      <Navbar selection={selection} setSelection={setSelection} 
-      isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen}
-      />
+    <main class='bg-[#dbafaf] min-h-screen w-full flex flex-col'>
+      <div>
+        <Title isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen}/>
+        <Logo />
+        <Navbar selection={selection} setSelection={setSelection} 
+        isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen}
+        />
+      </div>
       <Highlights selection={selection} />
+
+
+      <div class='flex-grow'></div>
+
       <Footer />
     </main>
     )
