@@ -7,11 +7,14 @@ import { useState } from "react"
 
 const App = () => {
   const [selection, setSelection] = useState(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   return (
     <main class='bg-[#dbafaf]'>
-      <Title />
+      <Title isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen}/>
       <Logo />
-      <Navbar selection={selection} setSelection={setSelection} />
+      <Navbar selection={selection} setSelection={setSelection} 
+      isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen}
+      />
       <Highlights selection={selection} />
       <Footer />
     </main>
