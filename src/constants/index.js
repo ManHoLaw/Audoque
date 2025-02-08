@@ -6,59 +6,28 @@ import {
 
 export const cakeSize =  [
     {
-        size: '6"',
         type: 'cake',
-        price: '£32'
-    },
-    {
-        size: '8"',
-        type: 'cake',
-        price: '£45'
-    },
+        price: '£32 - £45'
+    }
 ]
 export const basqueCakeSize =  [
     {
-        size: '6"',
-        price: '£28',
+        price: '£28 - £34',
         type: 'basquecake',
         flavour: 'Original'
     },
     {
-        size: '8"',
-        price: '£34',
-        type: 'basquecake',
-        flavour: 'Original'
-    },
-    {
-        size: '6"',
-        price: '£30',
+        price: '£30 - £36',
         type: 'basquecake',
         flavour: 'Flavoured'
-    },
-    {
-        size: '8"',
-        price: '£36',
-        type: 'basquecake',
-        flavour: 'Flavoured'
-    },
+    }
 ]
 
 export const rollCakeSize = [
     {
-        size: 'Full',
         type: 'roll',
-        price: '£35'
-    },
-    {
-        size: 'Half',
-        type: 'roll',
-        price: '£22'
-    },
-    {
-        size: 'Piece',
-        type: 'roll',
-        price: '£6.5'
-    },
+        price: '£6.5 - £35'
+    }
 ]
 
 

@@ -9,7 +9,7 @@ const Highlights = ({ selection }) => {
 
   return (
     <section class="flex justify-center overflow-hidden h-full">
-      <div className="w-3/4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 content-evenly gap-4 sm:py-10 pb-10">
+      <div className="w-3/4 grid grid-cols-2 md:grid-cols-3 content-evenly gap-4 sm:py-10 pb-10">
         {cakes
           .filter((cake) => {
             if (isChefSelection) return cake.chefSelection;
@@ -43,7 +43,7 @@ const Highlights = ({ selection }) => {
                   <h3 class="flex justify-center text-lg">{cake.title}</h3>
 
                   {/* Button for Sizes & Prices */}
-                  <div class={`mt-2 w-full grid ${cake.type === "roll" ? "grid-cols-3 text-" : "grid-cols-2"} gap-2`}>
+                  <div class='mt-2 w-full flex flex-1 justify-center'>
                   {sizes.filter((sizeObj)=>{
                       if (cake.type==='basquecake'){
                         return cake.flavour ? sizeObj.flavour ==='Flavoured' : sizeObj.flavour === 'Original'
@@ -52,7 +52,7 @@ const Highlights = ({ selection }) => {
                     })
                     .map((sizeObj, index) => (
                       <button key={index} class="bg-[#f5d0c5] text-black py-2 px-4 m-1 rounded-lg shadow-md flex justify-center">
-                        {sizeObj.size} - {sizeObj.price}
+                        {sizeObj.price}
                       </button>
                     ))}
                   </div>
