@@ -8,7 +8,7 @@ const Popup = ({ closePopup,cake }) => {
           <img
                   src={cake.img}
                   alt={cake.title}
-                  class="h-auto max-sm:object-cover flex max-w-100 rounded-2xl cursor-pointer"
+                  class="h-auto max-sm:object-cover flex max-w-100 rounded-2xl cursor-pointer max-sm:max-w-50"
                 />
         </h2>
         <button onClick={closePopup} className="mt-2 px-4 py-2 bg-red-500 text-white rounded">
