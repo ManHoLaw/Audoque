@@ -10,5 +10,4 @@ html, body{
 
 .control-btn {
   @apply ml-4 p-4 rounded-full backdrop-blur bg-white 
-
 }

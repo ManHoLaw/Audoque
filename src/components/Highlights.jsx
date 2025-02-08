@@ -2,7 +2,6 @@ import { useRef, useState } from "react";
 import { cakes, navLists, cakeSize, rollCakeSize, basqueCakeSize } from "../constants";
 import Popup from "./Popup";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 
 const Highlights = ({ selection }) => {
   const isChefSelection = navLists[selection] === "Chef's Selection";
@@ -37,21 +36,19 @@ const Highlights = ({ selection }) => {
                 : [];
 
             return (
-              <div key={cake.id} class="relative rounded-lg overflow-visable items-center flex flex-col">
+              <div key={cake.id} class="rounded-lg overflow-hidden items-center flex flex-col">
                 {/* Cake Image */}
                 <img
                   ref={imgRef}
                   src={cake.img}
                   alt={cake.title}
-                  class="h-auto max-sm:object-cover flex max-w-50 w-1/2 rounded-2xl cursor-pointer"
+                  class="h-auto max-sm:object-cover flex max-w-50 w-1/2 rounded-2xl cursor-pointer max-sm:max-w-100"
                   onClick={() => setPopupCake(cake)}
-                  onMouseEnter={() => gsap.to(imgRef.current, { scale: 1.2, duration: 0.3, zIndex: 50 })}
-                  onMouseLeave={() => gsap.to(imgRef.current, { scale: 1, duration: 0.3 })}
                 />
 
                 {/* Cake Details */}
                 <div class="p-3">
-                  <h3 class="flex justify-center text-lg cursor-pointer" onClick={() => setPopupCake(cake)}>{cake.title}</h3>
+                  <h3 class="flex justify-center text-lg cursor-pointer max-sm:text-10px">{cake.title}</h3>
 
                   {/* Button for Sizes & Prices */}
                   <div class='w-full flex flex-1 justify-center'>
@@ -64,7 +61,7 @@ const Highlights = ({ selection }) => {
                     .map((sizeObj, index) => (
                       <button
                       key={index} 
-                      class="text-black py-2 px-4 m-1 rounded-lg flex justify-center"
+                      class="text-black py-2 px-4 m-1 rounded-lg flex justify-center max-sm:text-10px"
                       >
                         {sizeObj.price}
                       </button>
