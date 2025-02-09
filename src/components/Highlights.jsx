@@ -41,13 +41,13 @@ const Highlights = ({ selection }) => {
                   ref={(el) => (imgRefs.current[index] = el)} // 🔹 Store ref properly
                   src={cake.img}
                   alt={cake.title}
-                  className="h-auto max-sm:object-cover flex max-w-50 w-1/2 rounded-2xl cursor-pointer max-sm:max-w-100"
+                  className="max-sm:object-cover flex max-w-50 w-3/4 rounded-2xl cursor-pointer"
                   onClick={() => setPopupCake(cake)}
                 />
 
                 {/* Cake Details */}
-                <div className="p-3">
-                  <h3 className="flex justify-center text-lg cursor-pointer max-sm:text-[16px]">
+                <div className="pt-3">
+                  <h3 className="flex justify-center text-lg cursor-pointer max-sm:text-[10px]">
                     {cake.title}
                   </h3>
 
@@ -63,7 +63,7 @@ const Highlights = ({ selection }) => {
                       .map((priceObj, index) => (
                         <button
                           key={index}
-                          className="text-black py-2 px-4 m-1 rounded-lg flex justify-center max-sm:text-[16px]"
+                          className="text-black py-2 px-4 m-1 rounded-lg flex justify-center max-sm:text-[10px]"
                         >
                           {priceObj.price}
                         </button>
