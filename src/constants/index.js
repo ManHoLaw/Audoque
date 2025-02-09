@@ -4,13 +4,13 @@ import {
     machacakeImg,
 } from "../utils"
 
-export const cakeSize =  [
+export const cakePrice =  [
     {
         type: 'cake',
         price: '£32 - £45'
     }
 ]
-export const basqueCakeSize =  [
+export const basqueCakePrice =  [
     {
         price: '£28 - £34',
         type: 'basquecake',
@@ -23,7 +23,7 @@ export const basqueCakeSize =  [
     }
 ]
 
-export const rollCakeSize = [
+export const rollCakePrice = [
     {
         type: 'roll',
         price: '£6.5 - £35'

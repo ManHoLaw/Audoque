@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
-import { cakes, navLists, cakeSize, rollCakeSize, basqueCakeSize } from "../constants";
+import { cakes, navLists, cakePrice, rollCakePrice, basqueCakePrice } from "../constants";
 import Popup from "./Popup";
-import gsap from "gsap";
 
 const Highlights = ({ selection }) => {
   const isChefSelection = navLists[selection] === "Chef's Selection";
@@ -9,10 +8,12 @@ const Highlights = ({ selection }) => {
   const isRoll = navLists[selection] === "Roll";
   const isBasque = navLists[selection] === "Basque Cake";
   const [popupCake, setPopupCake] = useState(null);
-
+  
+  // 🔹 Store multiple refs using an array
+  const imgRefs = useRef([]);
 
   return (
-    <section class="flex justify-center overflow-hidden h-full pt-5">
+    <section className="flex justify-center overflow-hidden h-full pt-5">
       <div className="w-3/4 grid grid-cols-2 md:grid-cols-3 content-evenly gap-4 sm:py-10 pb-10">
         {cakes
           .filter((cake) => {
@@ -22,53 +23,50 @@ const Highlights = ({ selection }) => {
             if (isBasque) return cake.type === "basquecake";
             return true;
           })
-          .map((cake) => {
-            
-            const imgRef = useRef(null)
-            // Select the right size array based on type
-            const sizes =
+          .map((cake, index) => {  // 🔹 Added "index" to track ref
+            // Select the right price array based on type
+            const price =
               cake.type === "cake"
-                ? cakeSize
+                ? cakePrice
                 : cake.type === "roll"
-                ? rollCakeSize
+                ? rollCakePrice
                 : cake.type === "basquecake"
-                ? basqueCakeSize
+                ? basqueCakePrice
                 : [];
 
             return (
-              <div key={cake.id} class="rounded-lg overflow-hidden items-center flex flex-col">
+              <div key={cake.id} className="rounded-lg overflow-hidden items-center flex flex-col">
                 {/* Cake Image */}
                 <img
-                  ref={imgRef}
+                  ref={(el) => (imgRefs.current[index] = el)} // 🔹 Store ref properly
                   src={cake.img}
                   alt={cake.title}
-                  class="h-auto max-sm:object-cover flex max-w-50 w-1/2 rounded-2xl cursor-pointer max-sm:max-w-100"
+                  className="h-auto max-sm:object-cover flex max-w-50 w-1/2 rounded-2xl cursor-pointer max-sm:max-w-100"
                   onClick={() => setPopupCake(cake)}
                 />
 
                 {/* Cake Details */}
-                <div class="p-3">
-                  <h3 class="flex justify-center text-lg cursor-pointer max-sm:text-10px">{cake.title}</h3>
+                <div className="p-3">
+                  <h3 className="flex justify-center text-lg cursor-pointer max-sm:text-10px">{cake.title}</h3>
 
                   {/* Button for Sizes & Prices */}
-                  <div class='w-full flex flex-1 justify-center'>
-                    {sizes.filter((sizeObj)=>{
-                      if (cake.type==='basquecake'){
-                        return cake.flavour ? sizeObj.flavour ==='Flavoured' : sizeObj.flavour === 'Original'
-                      }
-                      return true
-                    })
-                    .map((sizeObj, index) => (
-                      <button
-                      key={index} 
-                      class="text-black py-2 px-4 m-1 rounded-lg flex justify-center max-sm:text-10px"
-                      >
-                        {sizeObj.price}
-                      </button>
-                    ))}
+                  <div className="w-full flex flex-1 justify-center">
+                    {price
+                      .filter((priceObj) => {
+                        if (cake.type === "basquecake") {
+                          return cake.flavour ? priceObj.flavour === "Flavoured" : priceObj.flavour === "Original";
+                        }
+                        return true;
+                      })
+                      .map((priceObj, index) => (
+                        <button
+                          key={index}
+                          className="text-black py-2 px-4 m-1 rounded-lg flex justify-center max-sm:text-10px"
+                        >
+                          {priceObj.price}
+                        </button>
+                      ))}
                     {popupCake && <Popup closePopup={() => setPopupCake(null)} cake={popupCake} />}
-
-
                   </div>
                 </div>
               </div>
