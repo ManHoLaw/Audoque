@@ -47,7 +47,9 @@ const Highlights = ({ selection }) => {
 
                 {/* Cake Details */}
                 <div className="p-3">
-                  <h3 className="flex justify-center text-lg cursor-pointer max-sm:text-10px">{cake.title}</h3>
+                  <h3 className="flex justify-center text-lg cursor-pointer max-sm:text-[10px]">
+                    {cake.title}
+                  </h3>
 
                   {/* Button for Sizes & Prices */}
                   <div className="w-full flex flex-1 justify-center">

@@ -7,17 +7,17 @@ import {
 export const cakePrice =  [
     {
         type: 'cake',
-        price: '£32 - £45'
+        price: '£32 ~ £45'
     }
 ]
 export const basqueCakePrice =  [
     {
-        price: '£28 - £34',
+        price: '£28 ~ £34',
         type: 'basquecake',
         flavour: 'Original'
     },
     {
-        price: '£30 - £36',
+        price: '£30 ~ £36',
         type: 'basquecake',
         flavour: 'Flavoured'
     }
@@ -26,7 +26,7 @@ export const basqueCakePrice =  [
 export const rollCakePrice = [
     {
         type: 'roll',
-        price: '£6.5 - £35'
+        price: '£6.5 ~ £35'
     }
 ]
 
