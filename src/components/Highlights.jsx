@@ -47,7 +47,7 @@ const Highlights = ({ selection }) => {
 
                 {/* Cake Details */}
                 <div className="p-3">
-                  <h3 className="flex justify-center text-lg cursor-pointer max-sm:text-[10px]">
+                  <h3 className="flex justify-center text-lg cursor-pointer max-sm:text-[16px]">
                     {cake.title}
                   </h3>
 
@@ -63,7 +63,7 @@ const Highlights = ({ selection }) => {
                       .map((priceObj, index) => (
                         <button
                           key={index}
-                          className="text-black py-2 px-4 m-1 rounded-lg flex justify-center max-sm:text-10px"
+                          className="text-black py-2 px-4 m-1 rounded-lg flex justify-center max-sm:text-[16px]"
                         >
                           {priceObj.price}
                         </button>
