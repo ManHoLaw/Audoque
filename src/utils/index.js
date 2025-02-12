@@ -11,5 +11,7 @@ export const searchImg = search
 export const menuImg = menu
 
 import machacake from "/cakes/Matchawhole.jpg"
+import macharoll from "/cakes/Matcharoll.jpg"
 
 export const machacakeImg = machacake
+export const macharollImg = macharoll

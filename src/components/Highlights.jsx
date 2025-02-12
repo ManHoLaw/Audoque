@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { cakes, navLists, cakePrice, rollCakePrice, basqueCakePrice } from "../constants";
+import { cakes, navLists, Prices } from "../constants";
 import Popup from "./Popup";
 
 const Highlights = ({ selection }) => {
@@ -25,14 +25,9 @@ const Highlights = ({ selection }) => {
           })
           .map((cake, index) => {  // 🔹 Added "index" to track ref
             // Select the right price array based on type
-            const price =
-              cake.type === "cake"
-                ? cakePrice
-                : cake.type === "roll"
-                ? rollCakePrice
-                : cake.type === "basquecake"
-                ? basqueCakePrice
-                : [];
+            const priceObj = Prices.find(
+              (p) => p.type === cake.type && 
+              (!p.flavour || p.flavour === (cake.flavour ? "Flavoured" : "Original")))
 
             return (
               <div key={cake.id} className="rounded-lg overflow-hidden items-center flex flex-col">
@@ -53,24 +48,15 @@ const Highlights = ({ selection }) => {
 
                   {/* Button for Sizes & Prices */}
                   <div className="w-full flex flex-1 justify-center">
-                    {price
-                      .filter((priceObj) => {
-                        if (cake.type === "basquecake") {
-                          return cake.flavour ? priceObj.flavour === "Flavoured" : priceObj.flavour === "Original";
-                        }
-                        return true;
-                      })
-                      .map((priceObj, index) => (
-                        <button
-                          key={index}
-                          className="text-black py-2 px-4 m-1 rounded-lg flex justify-center max-sm:text-[10px]"
-                        >
-                          {priceObj.price}
-                        </button>
-                      ))}
-                    {popupCake && <Popup closePopup={() => setPopupCake(null)} cake={popupCake} />}
+                    {priceObj && (
+                      <button className="text-black py-2 px-4 m-1 rounded-lg flex justify-center max-sm:text-[10px]">
+                        {priceObj.price[0]} ~ {priceObj.price.at(-1)}
+                      </button>
+                    )}
+
+                    {popupCake && <Popup closePopup={() => setPopupCake(null)} cake={popupCake}/>}
                   </div>
-                </div>
+              </div>
               </div>
             );
           })}

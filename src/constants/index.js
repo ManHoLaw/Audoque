@@ -2,34 +2,33 @@ export const navLists = ["Chef's Selection", "Cake", "Roll", "Basque Cake"];
 
 import { 
     machacakeImg,
+    macharollImg,
 } from "../utils"
 
-export const cakePrice =  [
+export const Prices = [
     {
         type: 'cake',
-        price: '£32 ~ £45'
-    }
-]
-export const basqueCakePrice =  [
+        size: ['6"', '8"'],
+        price: ['£32', '£45']
+    },
     {
-        price: '£28 ~ £34',
         type: 'basquecake',
+        size: ['6"', '8"'],
+        price: ['£28', '£34'],
         flavour: 'Original'
     },
     {
-        price: '£30 ~ £36',
         type: 'basquecake',
+        size: ['6"', '8"'],
+        price: ['£30', '£36'],
         flavour: 'Flavoured'
-    }
-]
-
-export const rollCakePrice = [
+    },
     {
         type: 'roll',
-        price: '£6.5 ~ £35'
+        size: ['Piece', '13cm', '26cm'],
+        price: ['£6.5', '£22', '£35']
     }
 ]
-
 
 export const cakes = [
     {
@@ -46,7 +45,7 @@ export const cakes = [
         type: 'roll',
         title: 'Matcha roll',
         flavour: false,
-        img: machacakeImg
+        img: macharollImg
     },
     {
         id:3,
@@ -78,7 +77,7 @@ export const cakes = [
         type: 'roll',
         title: 'Coffee roll',
         flavour: false,
-        img: machacakeImg
+        img: macharollImg
     },
     {
         id:7,
@@ -102,6 +101,6 @@ export const cakes = [
         type: 'roll',
         title: 'Chocolate roll',
         flavour: false,
-        img: machacakeImg
+        img: macharollImg
     },
 ];
