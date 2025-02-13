@@ -37,7 +37,8 @@ export const cakes = [
         type: 'cake',
         title: 'Matcha Whole cake',
         flavour: false,
-        img: machacakeImg
+        img: machacakeImg,
+        
     },
     {
         id:2,
