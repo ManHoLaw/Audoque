@@ -2,12 +2,11 @@ import { useRef, useState } from "react";
 import { cakes, navLists, Prices } from "../constants";
 import Popup from "./Popup";
 
-const Highlights = ({ selection }) => {
+const Highlights = ({ selection, popupCake, setPopupCake }) => {
   const isChefSelection = navLists[selection] === "Chef's Selection";
   const isCake = navLists[selection] === "Cake";
   const isRoll = navLists[selection] === "Roll";
   const isBasque = navLists[selection] === "Basque Cake";
-  const [popupCake, setPopupCake] = useState(null);
   
   // 🔹 Store multiple refs using an array
   const imgRefs = useRef([]);
@@ -54,13 +53,13 @@ const Highlights = ({ selection }) => {
                       </button>
                     )}
 
-                    {popupCake && <Popup closePopup={() => setPopupCake(null)} cake={popupCake}/>}
                   </div>
               </div>
               </div>
             );
           })}
       </div>
+      {popupCake && <Popup closePopup={() => setPopupCake(null)} cake={popupCake}/>}
     </section>
   );
 };

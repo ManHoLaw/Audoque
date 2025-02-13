@@ -8,18 +8,31 @@ import { useState } from "react"
 const App = () => {
   const [selection, setSelection] = useState(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [popupCake, setPopupCake] = useState(false);
+
   return (
     <main class='bg-[#dbafaf] min-h-screen w-full flex flex-col'>
       <div>
-        <Title isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen}/>
+        <Title 
+          isSidebarOpen={isSidebarOpen} 
+          setIsSidebarOpen={setIsSidebarOpen}
+          popupCake={popupCake}
+          setPopupCake={setPopupCake} 
+        />
         <Logo />
-        <Navbar selection={selection} setSelection={setSelection} 
-        isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen}
+        <Navbar 
+          selection={selection} 
+          setSelection={setSelection} 
+          isSidebarOpen={isSidebarOpen} 
+          setIsSidebarOpen={setIsSidebarOpen}
         />
       </div>
-      <Highlights selection={selection} />
-
-
+      <Highlights 
+        selection={selection}
+        popupCake={popupCake}
+        setPopupCake={setPopupCake} 
+      />
+      
       <div class='flex-grow'></div>
 
       <Footer />

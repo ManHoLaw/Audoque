@@ -67,7 +67,7 @@ const Navbar = ({selection, setSelection, isSidebarOpen, setIsSidebarOpen}) => {
     }, [selection]);
 
   return (
-    <section class="bg-[#dbafaf] relative flex justify-center items-center w-full">
+    <section class="bg-[#dbafaf] flex justify-center items-center w-full">
         {isSidebarOpen && (
             <button class="fixed inset-0 bg-gray-900/50 flex justify-start" onClick={()=> setIsSidebarOpen(false)}>
                 <div class="bg-white w-64 h-full p-5 shadow-lg" onClick={(e)=>e.stopPropagation()}>
@@ -93,7 +93,7 @@ const Navbar = ({selection, setSelection, isSidebarOpen, setIsSidebarOpen}) => {
             {navLists.map((nav, i) => (
             <button
                 key={i}
-                class="menu-item cursor-pointer relative py-2 w-auto"
+                class="menu-item cursor-pointer py-2 w-auto"
                 onClick={() => handleClick(i)}
                 onMouseEnter={(e) => handleMouseEnter(i, e.currentTarget)}
                 onMouseLeave={(e) => handleMouseLeave(i, e.currentTarget)}
