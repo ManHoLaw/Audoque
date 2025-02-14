@@ -84,7 +84,6 @@ const Navbar = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen }) =>
             }
         });
     }, [selection]);
-    
 
     return (
         <section className="bg-[#dbafaf] flex justify-center items-center w-full">

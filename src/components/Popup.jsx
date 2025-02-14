@@ -1,5 +1,6 @@
 import { memo, useEffect } from "react";
 import { Prices } from "../constants"
+import { Link } from 'react-router-dom'
 
 const Popup = memo(({ closePopup, cake }) => {
   const priceObj = Prices.find(
@@ -33,8 +34,17 @@ const Popup = memo(({ closePopup, cake }) => {
           {cake.title}
         </div>
 
-        <div class='flex justify-start'>
-            Description
+        <div class="flex flex-col my-5 max-w-sm overflow-hidden">
+          <span class="break-words whitespace-normal">
+            {cake.description}
+          </span>
+          <Link
+            to={`/cake/${encodeURIComponent(cake.title.toLowerCase().replace(/\s+/g, "-"))}`}
+            class="bg-blue-500 text-white px-3 py-1 rounded text-sm mt-2 w-fit"
+            onClick={closePopup}
+          >
+            More Detail
+          </Link>
         </div>
 
         <div class='flex justify-center'>

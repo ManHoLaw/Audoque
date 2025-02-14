@@ -1,9 +1,11 @@
-import Highlights from "./components/Highlights"
-import Navbar from "./components/Navbar"
-import Title from "./components/Title"
-import Footer from "./components/Footer"
-import Logo from "./components/Logo"
-import { useState } from "react"
+import Highlights from "./components/Highlights";
+import Navbar from "./components/Navbar";
+import Title from "./components/Title";
+import Footer from "./components/Footer";
+import Logo from "./components/Logo";
+import CakeDetail from "./components/CakeDetail";
+import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 
 const App = () => {
   const [selection, setSelection] = useState(null);
@@ -11,33 +13,63 @@ const App = () => {
   const [popupCake, setPopupCake] = useState(false);
 
   return (
-    <main class='bg-[#dbafaf] min-h-screen w-full flex flex-col '>
-      <div>
-        <Title 
-          isSidebarOpen={isSidebarOpen} 
-          setIsSidebarOpen={setIsSidebarOpen}
-          popupCake={popupCake}
-          setPopupCake={setPopupCake} 
-        />
-        <Logo />
-        <Navbar 
-          selection={selection} 
-          setSelection={setSelection} 
-          isSidebarOpen={isSidebarOpen} 
-          setIsSidebarOpen={setIsSidebarOpen}
-        />
-      </div>
-      <Highlights 
+    <Router>
+      <MainContent
         selection={selection}
+        setSelection={setSelection}
+        isSidebarOpen={isSidebarOpen}
+        setIsSidebarOpen={setIsSidebarOpen}
         popupCake={popupCake}
-        setPopupCake={setPopupCake} 
+        setPopupCake={setPopupCake}
+      />
+    </Router>
+  );
+};
+
+const MainContent = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen, popupCake, setPopupCake }) => {
+  const location = useLocation();
+  const isCakeDetailPage = location.pathname.startsWith("/cake/");
+
+  return (
+    <main className="bg-[#dbafaf] min-h-screen w-full flex flex-col">
+      <Title
+        isSidebarOpen={isSidebarOpen}
+        setIsSidebarOpen={setIsSidebarOpen}
+        popupCake={popupCake}
+        setPopupCake={setPopupCake}
+      />
+      <Logo 
+        setSelection={setSelection}
       />
       
-      <div class='flex-grow'></div>
+      {/* Hide Navbar on Cake Detail page */}
+      {!isCakeDetailPage && (
+        <Navbar
+          selection={selection}
+          setSelection={setSelection}
+          isSidebarOpen={isSidebarOpen}
+          setIsSidebarOpen={setIsSidebarOpen}
+        />
+      )}
 
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Highlights
+              selection={selection}
+              popupCake={popupCake}
+              setPopupCake={setPopupCake}
+            />
+          }
+        />
+        <Route path="/cake/:title" element={<CakeDetail />} />
+      </Routes>
+
+      <div className="flex-grow"></div>
       <Footer />
     </main>
-    )
-}
+  );
+};
 
-export default App
+export default App;

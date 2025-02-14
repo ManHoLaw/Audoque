@@ -38,7 +38,7 @@ export const cakes = [
         title: 'Matcha Whole cake',
         flavour: false,
         img: machacakeImg,
-        
+        description: 'Description '
     },
     {
         id:2,
@@ -46,7 +46,8 @@ export const cakes = [
         type: 'roll',
         title: 'Matcha roll',
         flavour: false,
-        img: macharollImg
+        img: macharollImg,
+        description: 'Description'
     },
     {
         id:3,
@@ -54,7 +55,8 @@ export const cakes = [
         type: 'basquecake',
         title: 'Chocolate basque cake',
         flavour: true,
-        img: machacakeImg
+        img: machacakeImg,
+        description: 'Description'
     },
     {
         id:4,
@@ -62,7 +64,8 @@ export const cakes = [
         type: 'cake',
         title: 'Strawberry Whole cake',
         flavour: false,
-        img: machacakeImg
+        img: machacakeImg,
+        description: 'Description'
     },
     {
         id:5,
@@ -70,7 +73,8 @@ export const cakes = [
         type: 'cake',
         title: 'Coffee Whole cake',
         flavour: false,
-        img: machacakeImg
+        img: machacakeImg,
+        description: 'Description'
     },
     {
         id:6,
@@ -78,7 +82,8 @@ export const cakes = [
         type: 'roll',
         title: 'Coffee roll',
         flavour: false,
-        img: macharollImg
+        img: macharollImg,
+        description: 'Description'
     },
     {
         id:7,
@@ -86,7 +91,8 @@ export const cakes = [
         type: 'basquecake',
         title: 'Black Sesame Basque cake',
         flavour: true,
-        img: machacakeImg
+        img: machacakeImg,
+        description: 'Description'
     },
     {
         id:8,
@@ -94,7 +100,8 @@ export const cakes = [
         type: 'basquecake',
         title: '.. Basque cake',
         flavour: false,
-        img: machacakeImg
+        img: machacakeImg,
+        description: 'Description'
     },
     {
         id:9,
@@ -102,6 +109,7 @@ export const cakes = [
         type: 'roll',
         title: 'Chocolate roll',
         flavour: false,
-        img: macharollImg
+        img: macharollImg,
+        description: 'Description'
     },
 ];
