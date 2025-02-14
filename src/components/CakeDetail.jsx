@@ -1,7 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { cakes, Prices } from '../constants';
+import Popup from './Popup';
 
-const CakeDetail = () => {
+const CakeDetail = ({popupCake, setPopupCake}) => {
   const { title } = useParams(); // Get cake ID from URL
   const cake = cakes.find((c) => c.title.toLowerCase().replace(/\s+/g, "-") === title);
   const priceObj = Prices.find(
@@ -38,7 +39,10 @@ const CakeDetail = () => {
             </button>
           ))}
         </div>
+        
+        
     </section>
+    
   );
 };
 

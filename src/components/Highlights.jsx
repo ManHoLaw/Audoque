@@ -59,7 +59,7 @@ const Highlights = ({ selection, popupCake, setPopupCake }) => {
             );
           })}
       </div>
-      {popupCake && <Popup closePopup={() => setPopupCake(null)} cake={popupCake}/>}
+      {/* {popupCake && <Popup closePopup={() => setPopupCake(null)} cake={popupCake}/>} */}
     </section>
   );
 };

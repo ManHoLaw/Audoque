@@ -21,7 +21,7 @@ const Popup = memo(({ closePopup, cake }) => {
 
   return (
     <div class="fixed inset-0 flex items-center justify-center transition-none " onClick={closePopup}>
-      <div class="bg-white p-5 rounded-lg shadow-lg" onClick={(e)=>e.stopPropagation()}>
+      <div class="bg-white p-5 rounded-xl shadow-lg" onClick={(e)=>e.stopPropagation()}>
         <button onClick={closePopup} class="mb-2 px-4 py-2 bg-red-500 text-white rounded">
           Close
         </button>

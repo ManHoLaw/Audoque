@@ -6,6 +6,7 @@ import Logo from "./components/Logo";
 import CakeDetail from "./components/CakeDetail";
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import Popup from "./components/Popup";
 
 const App = () => {
   const [selection, setSelection] = useState(null);
@@ -41,7 +42,7 @@ const MainContent = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen,
       <Logo 
         setSelection={setSelection}
       />
-      
+
       {/* Hide Navbar on Cake Detail page */}
       {!isCakeDetailPage && (
         <Navbar
@@ -51,7 +52,9 @@ const MainContent = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen,
           setIsSidebarOpen={setIsSidebarOpen}
         />
       )}
-
+      {popupCake && popupCake.title && (
+        <Popup closePopup={() => setPopupCake(null)} cake={popupCake} />
+      )}
       <Routes>
         <Route
           path="/"
@@ -63,7 +66,8 @@ const MainContent = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen,
             />
           }
         />
-        <Route path="/cake/:title" element={<CakeDetail />} />
+        <Route path="/cake/:title" 
+        element={<CakeDetail popupcake={popupCake} setPopupCake={setPopupCake}/>} />
       </Routes>
 
       <div className="flex-grow"></div>
