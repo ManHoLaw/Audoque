@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useEffect } from "react";
 import { Prices } from "../constants"
 
 const Popup = memo(({ closePopup, cake }) => {
@@ -7,6 +7,16 @@ const Popup = memo(({ closePopup, cake }) => {
       p.type === cake.type &&
       (!p.flavour || p.flavour === (cake.flavour ? "Flavoured" : "Original"))
   );
+
+  useEffect(() => {
+      const handleKeyDown = (e) => {
+        if (e.key === 'Escape') {
+          closePopup();
+        }
+      };
+      document.addEventListener('keydown', handleKeyDown);
+      return () => document.removeEventListener('keydown', handleKeyDown);
+    }, [closePopup]);
 
   return (
     <div class="fixed inset-0 flex items-center justify-center transition-none " onClick={closePopup}>

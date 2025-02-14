@@ -11,7 +11,7 @@ const App = () => {
   const [popupCake, setPopupCake] = useState(false);
 
   return (
-    <main class='bg-[#dbafaf] min-h-screen w-full flex flex-col'>
+    <main class='bg-[#dbafaf] min-h-screen w-full flex flex-col '>
       <div>
         <Title 
           isSidebarOpen={isSidebarOpen} 

@@ -14,7 +14,7 @@ const Title = ({isSidebarOpen, setIsSidebarOpen, popupCake, setPopupCake }) => {
     }
 
   return (
-    <header class=''>
+    <header class='relative'>
         <nav class='w-full screen-max-width'>
             <nav class='relative w-full'>
                 <div class='fixed sm:hidden flex justify-between items-center p-4'>
@@ -26,14 +26,16 @@ const Title = ({isSidebarOpen, setIsSidebarOpen, popupCake, setPopupCake }) => {
             </nav>
 
 
-            <div class='fixed top-4 right-4 flex item-baseline gap-5 justify-end flex-1'>
+            <div class='fixed top-4 right-4 flex item-baseline gap-5 justify-end flex-1 z-10'>
                 <a class='cursor-pointer rounded-3x1'>
                     {showSearchImg && <img src={searchImg} alt='search' width={20} onClick={handleClick}/>}
-                    {showSearch && 
-                        <SearchBar handleClick={handleClick} 
-                        popupCake={popupCake}
-                        setPopupCake={setPopupCake} 
-                        />
+                    {showSearch && (
+                        <div className="fixed top-10 right-10 bg-white shadow-lg rounded-lg">
+                            <SearchBar handleClick={handleClick} 
+                            popupCake={popupCake}
+                            setPopupCake={setPopupCake} />
+                        </div>
+                        )
                     }
                 </a>
                 {/* <a class='cursor-pointer rounded-3x1 '>
