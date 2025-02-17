@@ -1,13 +1,23 @@
-export const navLists = ["Chef's Selection", "Cake", "Roll", "Basque Cake"];
+export const navLists = ["Chef's Selection", "Whole", "Roll", "Basque Cake"];
+export const extraLists= ["Membership Scheme", "Promotion", "Delivery options", "Order form"]
 
 import { 
-    machacakeImg,
-    macharollImg,
+    machawcakeImg,
+    oolongwcakeImg,
+    sesamewcakeImg,
+    machabcakeImg,
+    oolongbcakeImg,
+    sesamebcakeImg,
+    originbcakeImg,
+    matcharollImg,
+    oolongarollImg,
+    sesamerollImg,
+    
 } from "../utils"
 
 export const Prices = [
     {
-        type: 'cake',
+        type: 'whole',
         size: ['6"', '8"'],
         price: ['£32', '£45']
     },
@@ -34,82 +44,91 @@ export const cakes = [
     {
         id:1,
         chefSelection: true,
-        type: 'cake',
+        type: 'whole',
         title: 'Matcha Whole cake',
         flavour: false,
-        img: machacakeImg,
+        img: machawcakeImg,
         description: 'Description '
     },
     {
         id:2,
         chefSelection: true,
-        type: 'roll',
-        title: 'Matcha roll',
+        type: 'whole',
+        title: 'Oolong Whole cake',
         flavour: false,
-        img: macharollImg,
+        img: oolongwcakeImg,
         description: 'Description'
     },
     {
         id:3,
         chefSelection: false,
-        type: 'basquecake',
-        title: 'Chocolate basque cake',
-        flavour: true,
-        img: machacakeImg,
+        type: 'whole',
+        title: 'Sesame Whole cake',
+        flavour: false,
+        img: sesamewcakeImg,
         description: 'Description'
     },
     {
         id:4,
         chefSelection: false,
-        type: 'cake',
-        title: 'Strawberry Whole cake',
-        flavour: false,
-        img: machacakeImg,
+        type: 'basquecake',
+        title: 'Macha Basque cake',
+        flavour: true,
+        img: machabcakeImg,
         description: 'Description'
     },
     {
         id:5,
         chefSelection: false,
-        type: 'cake',
-        title: 'Coffee Whole cake',
-        flavour: false,
-        img: machacakeImg,
+        type: 'basquecake',
+        title: 'Oolong Basque cake',
+        flavour: true,
+        img: oolongbcakeImg,
         description: 'Description'
     },
     {
         id:6,
         chefSelection: false,
-        type: 'roll',
-        title: 'Coffee roll',
-        flavour: false,
-        img: macharollImg,
+        type: 'basquecake',
+        title: 'Sesame Basque cake',
+        flavour: true,
+        img: sesamebcakeImg,
         description: 'Description'
     },
     {
         id:7,
         chefSelection: false,
         type: 'basquecake',
-        title: 'Black Sesame Basque cake',
-        flavour: true,
-        img: machacakeImg,
+        title: 'Original Basque cake',
+        flavour: false,
+        img: originbcakeImg,
         description: 'Description'
     },
     {
         id:8,
         chefSelection: true,
-        type: 'basquecake',
-        title: '.. Basque cake',
+        type: 'roll',
+        title: 'Matcha roll',
         flavour: false,
-        img: machacakeImg,
+        img: matcharollImg,
         description: 'Description'
     },
     {
         id:9,
         chefSelection: false,
         type: 'roll',
-        title: 'Chocolate roll',
+        title: 'Oolong roll',
         flavour: false,
-        img: macharollImg,
+        img: oolongarollImg,
+        description: 'Description'
+    },
+    {
+        id:10,
+        chefSelection: false,
+        type: 'roll',
+        title: 'Sesame roll',
+        flavour: false,
+        img: sesamerollImg,
         description: 'Description'
     },
 ];

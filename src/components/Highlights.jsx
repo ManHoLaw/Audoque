@@ -4,7 +4,7 @@ import Popup from "./Popup";
 
 const Highlights = ({ selection, popupCake, setPopupCake }) => {
   const isChefSelection = navLists[selection] === "Chef's Selection";
-  const isCake = navLists[selection] === "Cake";
+  const isWhole = navLists[selection] === "Whole";
   const isRoll = navLists[selection] === "Roll";
   const isBasque = navLists[selection] === "Basque Cake";
   
@@ -17,7 +17,7 @@ const Highlights = ({ selection, popupCake, setPopupCake }) => {
         {cakes
           .filter((cake) => {
             if (isChefSelection) return cake.chefSelection;
-            if (isCake) return cake.type === "cake";
+            if (isWhole) return cake.type === "whole";
             if (isRoll) return cake.type === "roll";
             if (isBasque) return cake.type === "basquecake";
             return true;

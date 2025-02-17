@@ -47,7 +47,7 @@ const SearchBar = ({ handleClick, popupCake, setPopupCake }) => {
   return (
     <div ref={searchBarRef} className="search-bar max-w-md mx-auto inset-0 flex flex-col transition-none relative">
       <form className="flex items-center border border-gray-300 rounded-t-lg shadow-md p-2 bg-white gap-3">
-        <img src={closeIconImg} width={20} onClick={handleClick} className="cursor-pointer" />
+        <img src={closeIconImg} width={10} onClick={handleClick} className="cursor-pointer" />
         <input
           ref={inputRef}
           type="text"

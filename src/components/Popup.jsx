@@ -1,6 +1,7 @@
 import { memo, useEffect } from "react";
 import { Prices } from "../constants"
 import { Link } from 'react-router-dom'
+import { closeIconImg } from '../utils';
 
 const Popup = memo(({ closePopup, cake }) => {
   const priceObj = Prices.find(
@@ -22,11 +23,10 @@ const Popup = memo(({ closePopup, cake }) => {
   return (
     <div class="fixed inset-0 flex items-center justify-center transition-none " onClick={closePopup}>
       <div class="bg-white p-5 rounded-xl shadow-lg" onClick={(e)=>e.stopPropagation()}>
-        <button onClick={closePopup} class="mb-2 px-4 py-2 bg-red-500 text-white rounded">
-          Close
-        </button>
+        <img src={closeIconImg} width={10} onClick={closePopup} className="cursor-pointer pb-3" />
+        
         <div class='flex justify-center'>
-          <img src={cake.img} alt={cake.title} class=" max-sm:object-cover max-w-80 rounded-2xl max-sm:max-w-50" />
+          <img src={cake.img} alt={cake.title} class="border max-sm:object-cover max-w-80 rounded-2xl max-sm:max-w-50" />
         </div>
         
 
@@ -34,16 +34,18 @@ const Popup = memo(({ closePopup, cake }) => {
           {cake.title}
         </div>
 
-        <div class="flex flex-col my-5 max-w-sm overflow-hidden">
-          <span class="break-words whitespace-normal">
+        <div class="flex flex-col my-5 max-w-sm overflow-hidden w-full">
+          <span class="break-words whitespace-normal pb-5">
             {cake.description}
           </span>
           <Link
             to={`/cake/${encodeURIComponent(cake.title.toLowerCase().replace(/\s+/g, "-"))}`}
-            class="bg-blue-500 text-white px-3 py-1 rounded text-sm mt-2 w-fit"
+            class="flex justify-end pt-5 rounded text-sm w-fit underline underline-offset-4 self-end"
             onClick={closePopup}
           >
-            More Detail
+            <span className='text-black/75'>
+              More Detail
+            </span>
           </Link>
         </div>
 

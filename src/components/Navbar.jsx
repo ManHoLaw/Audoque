@@ -1,6 +1,6 @@
 import gsap from 'gsap';
-import { navLists } from '../constants';
-import { useEffect, useCallback } from 'react';
+import { extraLists, navLists } from '../constants';
+import { useEffect, useCallback, useState } from 'react';
 
 const Navbar = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen }) => {
     const handleMouseEnter = useCallback((index, button) => {
@@ -44,23 +44,46 @@ const Navbar = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen }) =>
     const handleClick = (index, button) => {
         gsap.killTweensOf(button);
         gsap.killTweensOf(button.querySelector('.underline'));
-
-        setSelection((prevSelection) => (prevSelection === index ? null : index));
-
-        // Ensure the clicked button stays highlighted
+    
+        // Reset all buttons before applying animation to the selected one
+        const buttons = document.querySelectorAll('.menu-item');
+        buttons.forEach((btn, i) => {
+            if (i !== index) { // Reset only if not the selected button
+                gsap.to(btn, {
+                    color: 'black',
+                    duration: 0.3,
+                    ease: 'power1.inOut',
+                });
+    
+                gsap.to(btn.querySelector('.underline'), {
+                    scaleX: 0,
+                    transformOrigin: 'left center',
+                    duration: 0.3,
+                    ease: 'power1.out',
+                });
+            }
+        });
+    
+        // Determine the next selection state before updating
+        const nextSelection = selection === index ? null : index;
+        setSelection(nextSelection);
+    
+        // Animate the current button (either highlighted or reset)
         gsap.to(button, {
-            color: '#6d8d95',
+            color: nextSelection === null ? 'black' : '#6d8d95', // Reset to black when deselected
             duration: 0.3,
             ease: 'power1.inOut',
         });
-
+    
         gsap.to(button.querySelector('.underline'), {
-            scaleX: 1,
+            scaleX: nextSelection === null ? 0 : 1, // Hide underline if deselected
             transformOrigin: 'left center',
             duration: 0.3,
             ease: 'power1.out',
         });
     };
+    
+    const [Cake, setCake] = useState(false)
 
     useEffect(() => {
         const buttons = document.querySelectorAll('.menu-item');
@@ -87,24 +110,46 @@ const Navbar = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen }) =>
 
     return (
         <section className="bg-[#dbafaf] flex justify-center items-center w-full">
+            {/* Side bar */}
             {isSidebarOpen && (
                 <button className="fixed inset-0 bg-gray-900/50 flex justify-start" onClick={() => setIsSidebarOpen(false)}>
-                    <div className="bg-white/50 w-64 h-full p-5 shadow-lg" onClick={(e) => e.stopPropagation()}>
-                        <button className="flex mb-5 justify-start" onClick={() => setIsSidebarOpen(false)}>Close</button>
-                        {navLists.map((nav, i) => (
+                    <div className="bg-black/50 w-full h-full p-3 shadow-lg" onClick={(e) => e.stopPropagation()}>
+                        <button className="bg-white p-2 rounded-xl flex mb-5 cursor-pointer justify-start" onClick={() => setIsSidebarOpen(false)}>
+                            Close
+                        </button>
+                        <button class='menu-item block w-full text-left p-3 text-lg rounded-md cursor-pointer bg-[#DCB465]'
+                        onClick={()=>setCake(!Cake)}
+                        >
+                            Cake
+                        </button>
+                            {Cake && (navLists.map((nav, i) => (
+                                <button
+                                    key={i}
+                                    className={`menu-item block w-full text-left cursor-pointer p-3 text-lg rounded-md ${
+                                        selection === i ? 'bg-[#6d8d95] text-white/50' : 'bg-[#DCB465]'
+                                    }`}
+                                    onClick={(e) => handleClick(i, e.currentTarget)}
+                                >
+                                    {nav}
+                                </button>
+                            )))}
+                        <div class='p-20' />
+                        {extraLists.map((info, j) => (
                             <button
-                                key={i}
-                                className={`block w-full text-left p-3 text-lg rounded-md ${
-                                    selection === i ? 'bg-[#6d8d95] text-white/50' : 'bg-[#DCB465]'
-                                }`}
-                                onClick={(e) => handleClick(i, e.currentTarget)}
+                                key={j}
+                                className='block w-full text-left p-3 text-lg cursor-pointer rounded-md bg-[#DCB465]'
+                                
                             >
-                                {nav}
+                                {info}
                             </button>
                         ))}
+                        
                     </div>
                 </button>
             )}
+
+
+            {/* Normal */}
             <div className={`${isSidebarOpen ? 'hidden' : 'grid'} max-sm:hidden sm:grid-flow-col auto-cols-fr max-md:gap-5 text-xl gap-6`}>
                 {navLists.map((nav, i) => (
                     <button
