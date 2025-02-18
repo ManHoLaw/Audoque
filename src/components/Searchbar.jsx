@@ -46,7 +46,7 @@ const SearchBar = ({ handleClick, popupCake, setPopupCake }) => {
 
   return (
     <div ref={searchBarRef} className="search-bar max-w-md mx-auto inset-0 flex flex-col transition-none relative">
-      <form className="flex items-center border border-gray-300 rounded-t-lg shadow-md p-2 bg-white gap-3">
+      <form className="flex items-center border border-gray-300 rounded-lg shadow-md p-2 bg-white gap-3">
         <img src={closeIconImg} width={10} onClick={handleClick} className="cursor-pointer" />
         <input
           ref={inputRef}
@@ -59,7 +59,7 @@ const SearchBar = ({ handleClick, popupCake, setPopupCake }) => {
       </form>
 
       {query && (
-        <div className="absolute top-full bg-white rounded-b-2xl shadow-lg w-full">
+        <div className="absolute mt-1 top-full bg-white rounded-lg shadow-lg w-full max-h-100 overflow-y-auto">
           {filteredCakes.length > 0 ? (
             <ul className="space-y-2">
               {filteredCakes.map((cake) => (
