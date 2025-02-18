@@ -73,7 +73,8 @@ const SearchBar = ({ handleClick, popupCake, setPopupCake }) => {
         ) : (
           <p className="text-gray-500 p-2">No cakes found</p>
         )}
-      </div>
+        </div>)
+      }
     </div>
   );
 };
