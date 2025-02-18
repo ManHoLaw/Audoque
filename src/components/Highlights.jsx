@@ -6,7 +6,7 @@ const Highlights = ({ selection, popupCake, setPopupCake }) => {
   const isChefSelection = navLists[selection] === "Chef's Selection";
   const isWhole = navLists[selection] === "Whole";
   const isRoll = navLists[selection] === "Roll";
-  const isBasque = navLists[selection] === "Basque Cake";
+  const isBasque = navLists[selection] === "Basque";
   
   // 🔹 Store multiple refs using an array
   const imgRefs = useRef([]);

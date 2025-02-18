@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 import { extraLists, navLists } from '../constants';
 import { useEffect, useCallback, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen }) => {
     const handleMouseEnter = useCallback((index, button) => {
@@ -20,6 +21,7 @@ const Navbar = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen }) =>
             ease: 'power1.out',
         });
     }, []);
+    const navigate = useNavigate();
 
     const handleMouseLeave = useCallback((index, button) => {
         if (selection !== index) {
@@ -83,7 +85,7 @@ const Navbar = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen }) =>
         });
     };
     
-    const [Cake, setCake] = useState(false)
+    const [cake, setCake] = useState(false)
 
     useEffect(() => {
         const buttons = document.querySelectorAll('.menu-item');
@@ -112,38 +114,56 @@ const Navbar = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen }) =>
         <section className="bg-[#dbafaf] flex justify-center items-center w-full">
             {/* Side bar */}
             {isSidebarOpen && (
-                <button className="fixed inset-0 bg-gray-900/50 flex justify-start" onClick={() => setIsSidebarOpen(false)}>
-                    <div className="bg-black/50 w-full h-full p-3 shadow-lg" onClick={(e) => e.stopPropagation()}>
-                        <button className="bg-white p-2 rounded-xl flex mb-5 cursor-pointer justify-start" onClick={() => setIsSidebarOpen(false)}>
+                <button className="z-1 fixed inset-0 bg-gray-900/50 flex justify-start" onClick={() => setIsSidebarOpen(false)}>
+                    <div className="bg-black/50 flex flex-col gap-1 w-full h-full p-3 shadow-lg" onClick={(e) => e.stopPropagation()}>
+                        <button className="bg-white p-2 rounded-xl mb-5 cursor-pointer self-start" onClick={() => setIsSidebarOpen(false)}>
                             Close
                         </button>
                         <button class='menu-item block w-full text-left p-3 text-lg rounded-md cursor-pointer bg-[#DCB465]'
-                        onClick={()=>setCake(!Cake)}
+                        onClick={()=>setCake(!cake)}
                         >
                             Cake
                         </button>
-                            {Cake && (navLists.map((nav, i) => (
-                                <button
-                                    key={i}
-                                    className={`menu-item block w-full text-left cursor-pointer p-3 text-lg rounded-md ${
-                                        selection === i ? 'bg-[#6d8d95] text-white/50' : 'bg-[#DCB465]'
-                                    }`}
-                                    onClick={(e) => handleClick(i, e.currentTarget)}
-                                >
-                                    {nav}
-                                </button>
-                            )))}
-                        <div class='p-20' />
+                            {cake && (
+                            <div class='pl-5'>
+                                {navLists.map((nav, i) => (
+                                    <Link
+                                        key={i}
+                                        to={'/'}
+                                        className={`menu-item block w-full text-left cursor-pointer p-3 text-lg rounded-md ${
+                                            selection === i ? 'bg-[#6d8d95] text-white/50' : 'bg-[#DCB465]'
+                                        }`}
+                                        onClick={(e) => {
+                                            handleClick(i, e.currentTarget);
+                                            setIsSidebarOpen(false);
+                                            setTimeout(() => {
+                                                navigate('/');
+                                            }, 300);
+                                        }}
+                                    >
+                                        {nav}
+                                    </Link>
+                                ))}
+                            </div>
+                        )}
+                            
+                        {/* <div class='p-10' /> */}
                         {extraLists.map((info, j) => (
-                            <button
+                            <Link
                                 key={j}
+                                to={`/${encodeURIComponent(info.toLowerCase().replace(/\s+/g, '-'))}`}
                                 className='block w-full text-left p-3 text-lg cursor-pointer rounded-md bg-[#DCB465]'
-                                
+                                onClick={(e) => {
+                                    // handleClick(j, e.currentTarget); // Handle the button animation first
+                                    setIsSidebarOpen(false)
+                                    setTimeout(() => {
+                                        navigate(`/${encodeURIComponent(info.toLowerCase().replace(/\s+/g, '-'))}`); // Perform the navigation after the animation
+                                    }, 300); // Wait for the animation duration
+                                }}
                             >
                                 {info}
-                            </button>
+                            </Link>
                         ))}
-                        
                     </div>
                 </button>
             )}

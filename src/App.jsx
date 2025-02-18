@@ -7,6 +7,9 @@ import CakeDetail from "./components/CakeDetail";
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Popup from "./components/Popup";
+import Member from "./components/Member";
+import Promotion from "./components/Promotion";
+import Delivery from "./components/Delivery";
 
 const App = () => {
   const [selection, setSelection] = useState(null);
@@ -68,6 +71,12 @@ const MainContent = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen,
         />
         <Route path="/cake/:title" 
         element={<CakeDetail popupcake={popupCake} setPopupCake={setPopupCake}/>} />
+        <Route path="membership-scheme"
+        element={<Member />} />
+        <Route path="promotion"
+        element={<Promotion />} />
+        <Route path="delivery-options"
+        element={<Delivery />} />
       </Routes>
 
       <div className="flex-grow"></div>

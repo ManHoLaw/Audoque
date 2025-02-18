@@ -1,4 +1,4 @@
-export const navLists = ["Chef's Selection", "Whole", "Roll", "Basque Cake"];
+export const navLists = ["Chef's Selection", "Whole", "Roll", "Basque"];
 export const extraLists= ["Membership Scheme", "Promotion", "Delivery options", "Order form"]
 
 import { 
