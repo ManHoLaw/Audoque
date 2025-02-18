@@ -59,20 +59,20 @@ const SearchBar = ({ handleClick, popupCake, setPopupCake }) => {
       </form>
 
       {query && (
-      <div className="absolute top-full bg-white rounded-b-2xl shadow-lg w-full">
-        {filteredCakes.length > 0 ? (
-          <ul className="space-y-2">
-            {filteredCakes.map((cake) => (
-              <li key={cake.id} className="p-2 border-b border-gray-300 flex gap-5 cursor-pointer"
-                onClick={() => { setPopupCake(cake); handleClick(); }}>
-                <img src={cake.img} width={50} className="flex rounded-md" />
-                <span className="font-semibold flex items-center">{cake.title}</span>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p className="text-gray-500 p-2">No cakes found</p>
-        )}
+        <div className="absolute top-full bg-white rounded-b-2xl shadow-lg w-full">
+          {filteredCakes.length > 0 ? (
+            <ul className="space-y-2">
+              {filteredCakes.map((cake) => (
+                <li key={cake.id} className="p-2 border-b border-gray-300 flex gap-5 cursor-pointer"
+                  onClick={() => { setPopupCake(cake); handleClick(); }}>
+                  <img src={cake.img} width={50} className="flex rounded-md" />
+                  <span className="font-semibold flex items-center">{cake.title}</span>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="text-gray-500 p-2">No cakes found</p>
+          )}
         </div>)
       }
     </div>
