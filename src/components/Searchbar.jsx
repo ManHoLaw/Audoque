@@ -58,6 +58,7 @@ const SearchBar = ({ handleClick, popupCake, setPopupCake }) => {
         />
       </form>
 
+      {query && (
       <div className="absolute top-full bg-white rounded-b-2xl shadow-lg w-full">
         {filteredCakes.length > 0 ? (
           <ul className="space-y-2">
