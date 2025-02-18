@@ -155,7 +155,8 @@ const Navbar = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen }) =>
                                 className='block w-full text-left p-3 text-lg cursor-pointer rounded-md bg-[#DCB465]'
                                 onClick={(e) => {
                                     // handleClick(j, e.currentTarget); // Handle the button animation first
-                                    setIsSidebarOpen(false)
+                                    setIsSidebarOpen(false);
+                                    setSelection(false);
                                     setTimeout(() => {
                                         navigate(`/${encodeURIComponent(info.toLowerCase().replace(/\s+/g, '-'))}`); // Perform the navigation after the animation
                                     }, 300); // Wait for the animation duration
