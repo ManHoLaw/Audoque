@@ -38,9 +38,12 @@ const Popup = memo(({ closePopup, cake }) => {
           <span class="break-words whitespace-normal pb-5">
             {cake.description}
           </span>
+          <div class='text-xs'>
+              Allergens: Gluten, Eggs, Milk, Nuts
+          </div>
           <Link
             to={`/cake/${encodeURIComponent(cake.title.toLowerCase().replace(/\s+/g, "-"))}`}
-            class="flex justify-end pt-5 rounded text-sm w-fit underline underline-offset-4 self-end"
+            class="flex justify-end pt-1 rounded text-sm w-fit underline underline-offset-4 self-end"
             onClick={closePopup}
           >
             <span className='text-black/75'>
