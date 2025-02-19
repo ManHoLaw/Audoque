@@ -10,6 +10,7 @@ import Popup from "./components/Popup";
 import Member from "./components/Member";
 import Promotion from "./components/Promotion";
 import Delivery from "./components/Delivery";
+import Order from "./components/order";
 
 const App = () => {
   const [selection, setSelection] = useState(null);
@@ -77,6 +78,8 @@ const MainContent = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen,
         element={<Promotion />} />
         <Route path="delivery-options"
         element={<Delivery />} />
+        <Route path="order-form"
+        element={<Order />} />
       </Routes>
 
       <div className="flex-grow"></div>

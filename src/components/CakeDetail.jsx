@@ -24,7 +24,12 @@ const CakeDetail = ({popupCake, setPopupCake}) => {
             <img src={cake.img} alt={cake.title} className="max-w-100 max-sm:max-w-75 object-cover my-4 rounded-xl" />
         </div>
         <div className='flex-1 px-6 max-sm:w-full max-sm:max-w-screen w-[calc(100vw*2/5)] my-5 overflow-hidden'>
-            <p className='break-words whitespace-normal'>{cake.description}</p>
+            <p className='break-words whitespace-normal'>
+              {cake.description}
+            </p>
+            <div>
+              Allergens: Gluten, Eggs, Milk, Nuts
+            </div>
         </div>
 
 
