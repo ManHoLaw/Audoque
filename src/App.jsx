@@ -70,8 +70,8 @@ const MainContent = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen,
             />
           }
         />
-        <Route path="/cake/:title" 
-        element={<CakeDetail popupcake={popupCake} setPopupCake={setPopupCake}/>} />
+        <Route path="/:title" 
+        element={<CakeDetail />} />
         <Route path="membership-scheme"
         element={<Member />} />
         <Route path="promotion"

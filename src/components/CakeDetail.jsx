@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { cakes, Prices } from '../constants';
 import Popup from './Popup';
 
-const CakeDetail = ({popupCake, setPopupCake}) => {
+const CakeDetail = () => {
   const { title } = useParams(); // Get cake ID from URL
   const cake = cakes.find((c) => c.title.toLowerCase().replace(/\s+/g, "-") === title);
   const priceObj = Prices.find(
@@ -14,7 +14,7 @@ const CakeDetail = ({popupCake, setPopupCake}) => {
   if (!cake) return <h2 className='font-bold text-2xl'>Cake Not Found</h2>;
 
   return (
-    <section className="px-6 flex items-center flex-col">
+    <section className="px-6 flex items-center flex-col z-0">
         <div className='flex flex-1 pb-5'>
             <h1 className="text-xl font-bold">{cake.title}</h1>
         </div>
@@ -31,7 +31,6 @@ const CakeDetail = ({popupCake, setPopupCake}) => {
               Allergens: Gluten, Eggs, Milk, Nuts
             </div>
         </div>
-
 
 
         <div class='flex justify-center'>

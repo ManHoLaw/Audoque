@@ -42,7 +42,7 @@ const Popup = memo(({ closePopup, cake }) => {
               Allergens: Gluten, Eggs, Milk, Nuts
           </div>
           <Link
-            to={`/cake/${encodeURIComponent(cake.title.toLowerCase().replace(/\s+/g, "-"))}`}
+            to={`/${encodeURIComponent(cake.title.toLowerCase().replace(/\s+/g, "-"))}`}
             class="flex justify-end pt-1 rounded text-sm w-fit underline underline-offset-4 self-end"
             onClick={closePopup}
           >
