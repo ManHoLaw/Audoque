@@ -114,7 +114,7 @@ const Navbar = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen }) =>
         <section className="bg-[#dbafaf] flex justify-center items-center w-full">
             {/* Side bar */}
             {isSidebarOpen && (
-                <button className="z-1 fixed inset-0 bg-gray-900/50 flex justify-start" onClick={() => setIsSidebarOpen(false)}>
+                <button className="z-3 fixed inset-0 bg-gray-900/50 flex justify-start" onClick={() => setIsSidebarOpen(false)}>
                     <div className="bg-black/50 flex flex-col gap-1 w-full h-full p-3 shadow-lg" onClick={(e) => e.stopPropagation()}>
                         <button className="bg-white p-2 rounded-xl mb-5 cursor-pointer self-start" onClick={() => setIsSidebarOpen(false)}>
                             Close

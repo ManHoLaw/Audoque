@@ -6,6 +6,8 @@ import menu from "/icons/menu.svg"
 import closeIcon from "/icons/close_icon.svg"
 import menuIcon from "/icons/menu_icon.png"
 import instaIcon from "/icons/instagram_icon.png"
+import nextIcon from "/icons/next_icon.png"
+import backIcon from "/icons/back_icon.png"
 
 export const bannerImg = banner
 export const bannersmallImg = banner_s
@@ -15,6 +17,8 @@ export const menuImg = menu
 export const closeIconImg = closeIcon
 export const menuIconImg = menuIcon
 export const instaIconImg = instaIcon
+export const nextIconImg = nextIcon
+export const backIconImg = backIcon
 
 import machawcake from "/cakes/MatchaWcake.jpg"
 import oolongwcake from "/cakes/OolongWcake.jpg"

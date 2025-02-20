@@ -15,12 +15,14 @@ const CakeDetail = () => {
 
   return (
     <section className="px-6 flex flex-col z-0">
-        <div className='flex flex-1 justify-center pb-5'>
-            <h1 className="text-xl font-bold">{cake.title}</h1>
-        </div>
-
         <div className='flex justify-center'>
             <img src={cake.img} alt={cake.title} className="max-w-100 max-sm:max-w-75 object-cover my-4 rounded-xl" />
+        </div>
+        <div>
+          
+        </div>
+        <div className='flex flex-1 justify-center pb-5'>
+            <h1 className="text-xl font-bold">{cake.title}</h1>
         </div>
         <div class='flex justify-end'>
           <Link

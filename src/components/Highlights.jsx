@@ -40,15 +40,15 @@ const Highlights = ({ selection, popupCake, setPopupCake }) => {
                 />
 
                 {/* Cake Details */}
-                <div className="pt-3">
-                  <h3 className="flex justify-center text-lg cursor-pointer max-sm:text-[10px]">
+                <div className="pb-3 pt-2">
+                  <h3 className="flex justify-center text-sm cursor-pointer max-sm:text-[10px]">
                     {cake.title}
                   </h3>
 
                   {/* Button for Sizes & Prices */}
                   <div className="w-full flex flex-1 justify-center">
                     {priceObj && (
-                      <button className="text-black py-2 px-4 m-1 rounded-lg flex justify-center max-sm:text-[10px]">
+                      <button className="text-black px-4 rounded-lg text-xs flex justify-center max-sm:text-[10px]">
                         {priceObj.price[0]} ~ {priceObj.price.at(-1)}
                       </button>
                     )}

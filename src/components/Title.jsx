@@ -16,7 +16,7 @@ const Title = ({isSidebarOpen, setIsSidebarOpen, popupCake, setPopupCake }) => {
   return (
     <header class='relative'>
         <nav class='w-full screen-max-width'>
-            <nav class='relative w-full'>
+            <nav class='relative w-full z-2'>
                 <div class='fixed sm:hidden flex justify-between items-center p-4'>
                     <button class='cursor-pointer' onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
                         <Menu size={20} /> 

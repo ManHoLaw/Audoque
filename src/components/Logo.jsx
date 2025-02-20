@@ -9,7 +9,7 @@ const Logo = ({ setSelection }) => {
     }
 
   return (
-    <h1 class='w-full flex pb-5 justify-evenly'>
+    <h1 class='w-full flex justify-evenly'>
         <div class='flex items-baseline max-sm:justify-start max-sm:flex-none max-sm:hidden p-5'>
             <button class='cursor-pointer rounded-3xl' onClick={handleLogoClick}>
                 <img src={bannerImg} alt='Au_banner' width={300}/>

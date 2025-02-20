@@ -1,15 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
 @import 'tailwindcss';
 
+
 @theme {
-  --font-display: "Todes", "sans-serif"; 
+  --font-fraunces: "Fraunces", "sans-serif"; 
+  --font-didot: "Didot", "sans-serif";
 }
 
+@layer base {
+  * {
+    font-family: "Todes Light", sans-serif;
+  }
+}
+
+
+@font-face {
+  font-family: Didot;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/fonts/Didot LT Std Italic.otf") format("woff2");
+}
 @font-face {
   font-family: Todes;
   font-style: normal;
   font-weight: 200 700;
   font-display: swap;
-  src: url("/fonts/Todes Normal.otf") format("woff2");
+  src: url("/fonts/Todes Regular.otf") format("woff2");
 }
 
 .body{
