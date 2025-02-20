@@ -10,7 +10,7 @@ import Popup from "./components/Popup";
 import Member from "./components/Member";
 import Promotion from "./components/Promotion";
 import Delivery from "./components/Delivery";
-import Order from "./components/order";
+import Order from "./components/Order";
 import Homepage from "./components/Homepage";
 
 const App = () => {
