@@ -4,6 +4,8 @@ import { useEffect, useCallback, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen }) => {
+    const isCakeDetailPage = location.pathname.startsWith("/menu");
+
     const handleMouseEnter = useCallback((index, button) => {
         gsap.killTweensOf(button);
         gsap.killTweensOf(button.querySelector('.underline'));
@@ -147,7 +149,6 @@ const Navbar = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen }) =>
                             </div>
                         )}
                             
-                        {/* <div class='p-10' /> */}
                         {extraLists.map((info, j) => (
                             <Link
                                 key={j}
@@ -171,7 +172,7 @@ const Navbar = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen }) =>
 
 
             {/* Normal */}
-            <div className={`${isSidebarOpen ? 'hidden' : 'grid'} max-sm:hidden sm:grid-flow-col auto-cols-fr max-md:gap-5 text-xl gap-6`}>
+            {isCakeDetailPage && (<div className={`${isSidebarOpen ? 'hidden' : 'grid'} max-sm:hidden sm:grid-flow-col auto-cols-fr max-md:gap-5 text-xl gap-6`}>
                 {navLists.map((nav, i) => (
                     <button
                         key={i}
@@ -184,7 +185,7 @@ const Navbar = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen }) =>
                         <span className="underline absolute bottom-0 left-0 h-0.5 w-full bg-[#4e5f63] scale-x-0 origin-left transition-transform duration-500 ease-out" />
                     </button>
                 ))}
-            </div>
+            </div>)}
         </section>
     );
 };

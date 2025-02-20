@@ -6,8 +6,8 @@ import menu from "/icons/menu.svg"
 import closeIcon from "/icons/close_icon.svg"
 import menuIcon from "/icons/menu_icon.png"
 import instaIcon from "/icons/instagram_icon.png"
-import nextIcon from "/icons/next_icon.png"
-import backIcon from "/icons/back_icon.png"
+import nextIcon from "/icons/next_icon.svg"
+import backIcon from "/icons/back_icon.svg"
 
 export const bannerImg = banner
 export const bannersmallImg = banner_s

@@ -34,7 +34,7 @@ const App = () => {
 
 const MainContent = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen, popupCake, setPopupCake }) => {
   const location = useLocation();
-  const isCakeDetailPage = location.pathname.startsWith("/menu");
+  
 
   return (
     <main className="bg-[#dbafaf] min-h-screen w-full flex flex-col">
@@ -49,14 +49,12 @@ const MainContent = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen,
       />
 
       {/* Hide Navbar on Cake Detail page */}
-      {isCakeDetailPage && (
-        <Navbar
+      <Navbar
           selection={selection}
           setSelection={setSelection}
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}
         />
-      )}
       {popupCake && popupCake.title && (
         <Popup closePopup={() => setPopupCake(null)} cake={popupCake} />
       )}
