@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom'
 import { backIconImg, homepageImg, instaIconImg, menuIconImg, newInImg, nextIconImg } from '../utils'
-import gsap from 'gsap'
-import { useGSAP } from '@gsap/react'
 import NewInCarousel from './NewInCarousel'
 
 
@@ -37,7 +35,7 @@ const Homepage = () => {
         {/* New In Section  */}
         <div className="relative bg-white h-auto flex justify-center flex-col">
           <p className="text-xl pt-10 mx-auto sm:text-3xl font-fraunces">New In</p>
-          <div className="relative w-full flex justify-center items-center min-h-[300px]">
+          <div className="relative w-full flex justify-center items-center min-h-[400px]">
             <NewInCarousel />
           </div>
         </div>

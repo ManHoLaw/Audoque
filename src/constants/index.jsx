@@ -42,6 +42,11 @@ export const Prices = [
     }
 ]
 
+import { newInImg } from "../utils";
+
+export const newInLists = [newInImg, sesamerollImg, oolongbcakeImg]
+export const newInTitlewLists = ["Matcha Series", "Sesame Series", "Oolong Series"]
+
 
 export const cakes = [
     {
@@ -136,6 +141,3 @@ export const cakes = [
     },
 ]
 
-import { newInImg } from "../utils";
-
-export const newInLists = [newInImg, sesamerollImg, machabcakeImg]

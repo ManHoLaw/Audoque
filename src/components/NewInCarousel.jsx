@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { newInLists } from "../constants";
+import { newInLists, newInTitlewLists } from "../constants";
 import { backIconImg, nextIconImg } from "../utils";
 import { gsap } from "gsap";
 
@@ -7,8 +7,8 @@ const NewInCarousel = () => {
   const images = newInLists;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1); // 1 for Next, -1 for Back
-  const imageRef = useRef(null);
   const intervalRef = useRef(null);
+  const containerRef = useRef(null);
 
   const handleNext = () => {
     setDirection(1);
@@ -25,8 +25,8 @@ const NewInCarousel = () => {
   };
 
   const animateOut = (onComplete) => {
-    if (imageRef.current) {
-      gsap.to(imageRef.current, {
+    if (containerRef.current) {
+      gsap.to(containerRef.current, {
         x: direction * -500, // Move far left (-500) or far right (500)
         opacity: 0,
         duration: 0.5,
@@ -37,9 +37,9 @@ const NewInCarousel = () => {
   };
 
   useEffect(() => {
-    if (imageRef.current) {
+    if (containerRef.current) {
       gsap.fromTo(
-        imageRef.current,
+        containerRef.current,
         { x: direction * 500, opacity: 0 }, // New image enters from right (500) or left (-500)
         { x: 0, opacity: 1, duration: 0.5, ease: "power2.inOut" }
       );
@@ -62,13 +62,15 @@ const NewInCarousel = () => {
       </button>
 
       {/* Image & Title */}
-      <div className="flex items-center w-full">
+      <div ref={containerRef} className="flex items-center w-full flex-col">
         <img
-          ref={imageRef}
           src={images[currentIndex]}
           className="w-1/2 mx-auto rounded-3xl"
           alt="New In"
         />
+        <div class='py-5'>
+          {newInTitlewLists[currentIndex]}
+        </div>
       </div>
 
       {/* Next Icon */}
