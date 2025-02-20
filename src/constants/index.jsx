@@ -1,6 +1,6 @@
 export const navLists = ["Chef's Selection", "Whole", "Roll", "Basque"];
 export const extraLists= ["Membership Scheme", "Promotion", "Delivery options", "Order form"]
-export const fillingLists= ["Matcha Panna Cotta", "White Sesame Custard", "Oolong Panna Cotta", "Mochi"]
+
 
 
 import { 
@@ -54,90 +54,100 @@ export const cakes = [
         chefSelection: true,
         type: 'whole',
         title: 'Matcha Whole cake',
-        flavour: false,
-        img: machawcakeImg,
-        description: 'Description '
+        flavour: 'Matcha',
+        img: [machawcakeImg, oolongwcakeImg],
+        description: 'Description',
+        ingredients: 'Ingredients'
     },
     {
         id:2,
         chefSelection: true,
         type: 'whole',
         title: 'Oolong Whole cake',
-        flavour: false,
-        img: oolongwcakeImg,
-        description: 'Description'
+        flavour: 'Oolong',
+        img: [oolongwcakeImg],
+        description: 'Description',
+        ingredients: 'Ingredients'
     },
     {
         id:3,
         chefSelection: false,
         type: 'whole',
         title: 'Sesame Whole cake',
-        flavour: false,
-        img: sesamewcakeImg,
-        description: 'Description'
+        flavour: 'Sesame',
+        img: [sesamewcakeImg],
+        description: 'Description',
+        ingredients: 'Ingredients'
     },
     {
         id:4,
         chefSelection: false,
         type: 'basquecake',
         title: 'Macha Basque cake',
-        flavour: true,
-        img: machabcakeImg,
-        description: 'Description'
+        flavour: 'Matcha',
+        img: [machabcakeImg],
+        description: 'Description',
+        ingredients: 'Ingredients'
     },
     {
         id:5,
         chefSelection: false,
         type: 'basquecake',
         title: 'Oolong Basque cake',
-        flavour: true,
-        img: oolongbcakeImg,
-        description: 'Description'
+        flavour: 'Oolong',
+        img: [oolongbcakeImg],
+        description: 'Description',
+        ingredients: 'Ingredients'
     },
     {
         id:6,
         chefSelection: false,
         type: 'basquecake',
         title: 'Sesame Basque cake',
-        flavour: true,
-        img: sesamebcakeImg,
-        description: 'Description'
+        flavour: 'Sesame',
+        img: [sesamebcakeImg],
+        description: 'Description',
+        ingredients: 'Ingredients'
     },
     {
         id:7,
         chefSelection: false,
         type: 'basquecake',
         title: 'Original Basque cake',
-        flavour: false,
-        img: originbcakeImg,
-        description: 'Description'
+        flavour: '',
+        img: [originbcakeImg],
+        description: 'Description',
+        ingredients: 'Ingredients'
     },
     {
         id:8,
         chefSelection: true,
         type: 'roll',
         title: 'Matcha roll',
-        flavour: false,
-        img: matcharollImg,
-        description: 'Description'
+        flavour: 'Matcha',
+        img: [matcharollImg],
+        description: 'Description',
+        ingredients: 'Ingredients'
     },
     {
         id:9,
         chefSelection: false,
         type: 'roll',
         title: 'Oolong roll',
-        flavour: false,
-        img: oolongarollImg,
-        description: 'Description'
+        flavour: 'Oolong',
+        img: [oolongarollImg],
+        description: 'Description',
+        ingredients: 'Ingredients'
     },
     {
         id:10,
         chefSelection: false,
         type: 'roll',
         title: 'Sesame roll',
-        flavour: false,
-        img: sesamerollImg,
-        description: 'Description'
+        flavour: 'Sesame',
+        img: [sesamerollImg],
+        description: 'Description',
+        ingredients: 'Ingredients'
     },
 ]
 

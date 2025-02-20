@@ -65,7 +65,7 @@ const SearchBar = ({ handleClick, popupCake, setPopupCake }) => {
               {filteredCakes.map((cake) => (
                 <li key={cake.id} className="p-2 border-b border-gray-300 flex gap-5 cursor-pointer"
                   onClick={() => { setPopupCake(cake); handleClick(); }}>
-                  <img src={cake.img} width={50} className="flex rounded-md" />
+                  <img src={cake.img[0]} width={50} className="flex rounded-md" />
                   <span className="font-semibold flex items-center">{cake.title}</span>
                 </li>
               ))}

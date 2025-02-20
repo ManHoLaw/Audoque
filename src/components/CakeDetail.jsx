@@ -1,62 +1,94 @@
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { cakes, Prices } from '../constants';
+import { useState } from 'react';
 
 const CakeDetail = () => {
   const { title } = useParams(); // Get cake ID from URL
   const cake = cakes.find((c) => c.title.toLowerCase().replace(/\s+/g, "-") === title);
   const navigate = useNavigate();
+  const images = cake.img;
+  const [selectedImage, setSelectedImage] = useState(images[0])
+  const getFilling = (flavour) => {
+    if (flavour.includes("Matcha")) return ["Matcha Panna Cotta / Mochi + £3 each"];
+    if (flavour.includes("Sesame")) return ["White Sesame Custard / Mochi + £3 each"];
+    if (flavour.includes("Oolong")) return ["Oolong Panna Cotta / Mochi + £3 each"];
+    return "Mochi + £3 each"; // Default filling if no match
+  };
+  
   const priceObj = Prices.find(
     (p) =>
       p.type === cake.type &&
       (!p.flavour || p.flavour === (cake.flavour ? "Flavoured" : "Original"))
   );
 
-  if (!cake) return <h2 className='font-bold text-2xl'>Cake Not Found</h2>;
+  const handleThumbailClick=(image)=>{
+    setSelectedImage(image);
+  }
 
   return (
-    <section className="px-6 flex flex-col z-0">
-        <div className='flex justify-center'>
-            <img src={cake.img} alt={cake.title} className="max-w-100 max-sm:max-w-75 object-cover my-4 rounded-xl" />
-        </div>
-        <div>
-          
-        </div>
-        <div className='flex flex-1 justify-center pb-5'>
-            <h1 className="text-xl font-bold">{cake.title}</h1>
-        </div>
-        <div class='flex justify-end'>
-          <Link
-              to={'/order-form'}
-              className='flex cursor-pointer p-2 rounded-md bg-white'
-              onClick={(e) => {
-                  setTimeout(() => {
-                      navigate('/order-form');
-                  }, 300);
-              }}
-          >
-            Order Form
-          </Link>
-        </div>
-        <div className='flex-col gap-3 flex px-6 max-sm:w-full max-sm:max-w-screen w-[calc(100vw*2/5)] my-3 overflow-hidden sm:text-2xl'>
-            <p className='break-words whitespace-normal'>
-              {cake.description}
-            </p>
-            <div class='text-xs sm:text-xl'>
-              Allergens: Gluten, Eggs, Milk, Nuts
-            </div>
+    <section className="px-5 flex flex-col z-0">
+      <div className="mx-auto pt-5">
+        {/* Large Preview Image */}
+        <div className=" ">
+          <img
+            src={selectedImage}
+            alt="Preview"
+            className="flex flex-1 w-auto rounded-xl max-h-[250px] sm:max-h-[500px] "
+          />
         </div>
 
-        <div class='flex justify-center p-5'>
-          {priceObj?.price?.map((price, index) => (
-            <button
+        {/* Thumbnail Images */}
+        <div className=" mt-4 flex space-x-4 overflow-x-auto">
+          {images.map((image, index) => (
+            <img
               key={index}
-              class="text-black py-2 px-4 m-1 rounded-lg flex justify-center max-sm:text-[10px] border-1 bg-white"
-            >
-              {priceObj.size[index]}: {price}
-            </button>
+              src={image}
+              alt={`Thumbnail ${index}`}
+              className="object-cover max-h-[50px] sm:max-h-[100px] rounded-md cursor-pointer transition-all hover:opacity-80"
+              onClick={() => handleThumbailClick(image)} // Update preview on click
+            />
           ))}
         </div>
-        
+      </div>
+      
+      <div className='flex pt-5 flex-col items-center'>
+          <h1 className="text-xl font-bold justify-center">{cake.title}</h1>
+          <h2 class='relative justify-start'>
+            from {priceObj.price[0]}
+          </h2>
+      </div>
+      
+      <div className='flex flex-col gap-3 px-6 w-[40vw my-3 overflow-hidden sm:text-2xl max-sm:w-full'>
+          <div class='text-xs sm:text-xl'>
+            Fillings: {getFilling(cake.flavour)}
+          </div>
+          <p className='break-words whitespace-normal pt-10'>
+            Description: {cake.description}
+          </p>
+          <div class='text-xs sm:text-xl'>
+            Ingredients: {cake.ingredients}
+          </div>
+          <div class='text-xs sm:text-xl'>
+            Allergens: Gluten, Eggs, Milk, Nuts
+          </div>
+      </div>
+
+
+
+
+      <div class='flex justify-end'>
+        <Link
+            to={'/order-form'}
+            className='flex cursor-pointer p-2 bg-black text-white'
+            onClick={(e) => {
+                setTimeout(() => {
+                    navigate('/order-form');
+                }, 300);
+            }}
+        >
+          Order Form
+        </Link>
+      </div>
         
     </section>
     

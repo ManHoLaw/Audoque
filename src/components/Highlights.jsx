@@ -33,7 +33,7 @@ const Highlights = ({ selection, popupCake, setPopupCake }) => {
                 {/* Cake Image */}
                 <img
                   ref={(el) => (imgRefs.current[index] = el)} // 🔹 Store ref properly
-                  src={cake.img}
+                  src={cake.img[0]}
                   alt={cake.title}
                   className="max-sm:object-cover flex max-w-50 w-full rounded-2xl cursor-pointer"
                   onClick={() => setPopupCake(cake)}

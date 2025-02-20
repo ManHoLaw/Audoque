@@ -26,7 +26,7 @@ const Popup = memo(({ closePopup, cake }) => {
         <img src={closeIconImg} width={10} onClick={closePopup} className="cursor-pointer pb-3" />
         
         <div class='flex justify-center'>
-          <img src={cake.img} alt={cake.title} class="border max-sm:object-cover max-w-80 rounded-2xl max-sm:max-w-50" />
+          <img src={cake.img[0]} alt={cake.title} class="border max-sm:object-cover max-w-80 rounded-2xl max-sm:max-w-50" />
         </div>
         
 

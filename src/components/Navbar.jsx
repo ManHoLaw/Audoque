@@ -139,7 +139,7 @@ const Navbar = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen }) =>
                                             handleClick(i, e.currentTarget);
                                             setIsSidebarOpen(false);
                                             setTimeout(() => {
-                                                navigate('/');
+                                                navigate('/menu');
                                             }, 300);
                                         }}
                                     >
