@@ -4,6 +4,8 @@ import bag from "/icons/bag.svg"
 import search from "/icons/search.svg"
 import menu from "/icons/menu.svg"
 import closeIcon from "/icons/close_icon.svg"
+import menuIcon from "/icons/menu_icon.png"
+import instaIcon from "/icons/instagram_icon.png"
 
 export const bannerImg = banner
 export const bannersmallImg = banner_s
@@ -11,6 +13,8 @@ export const bagImg = bag
 export const searchImg = search
 export const menuImg = menu
 export const closeIconImg = closeIcon
+export const menuIconImg = menuIcon
+export const instaIconImg = instaIcon
 
 import machawcake from "/cakes/MatchaWcake.jpg"
 import oolongwcake from "/cakes/OolongWcake.jpg"
@@ -39,5 +43,7 @@ export const oolongarollImg = oolongaroll
 export const sesamerollImg = sesameroll
 
 import homepagevp from "/homepage/homepage_1.jpg"
+import newin from "/homepage/New_in.jpg"
 
 export const homepageImg = homepagevp
+export const newInImg = newin
