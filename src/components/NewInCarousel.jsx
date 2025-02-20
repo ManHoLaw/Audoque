@@ -6,52 +6,85 @@ import { gsap } from "gsap";
 const NewInCarousel = () => {
   const images = newInLists;
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(1); // 1 for Next, -1 for Back
+  const [isAnimating, setIsAnimating] = useState(false); 
   const intervalRef = useRef(null);
   const containerRef = useRef(null);
+  const imgRef = useRef(null);
+  const directionRef = useRef(1); // Use ref to track direction outside of state
 
   const handleNext = () => {
-    setDirection(1);
-    animateOut(() => {
+    if (isAnimating) return; // Prevent action if animation is in progress
+    const newDirection = -1; // Next direction
+    directionRef.current = newDirection; // Immediately set the direction to next
+    cancelAnimation(); // Cancel any ongoing animation
+    animateOut(newDirection, () => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      animateIn(newDirection); // Animate in the new image
     });
+    resetAutoSlide(); // Reset the auto-slide timer on user interaction
   };
 
   const handlePrev = () => {
-    setDirection(-1);
-    animateOut(() => {
+    if (isAnimating) return; // Prevent action if animation is in progress
+    const newDirection = 1; // Previous direction
+    directionRef.current = newDirection; // Immediately set the direction to previous
+    cancelAnimation(); // Cancel any ongoing animation
+    animateOut(newDirection, () => {
       setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+      animateIn(newDirection); // Animate in the new image
     });
+    resetAutoSlide(); // Reset the auto-slide timer on user interaction
   };
 
-  const animateOut = (onComplete) => {
+  // Cancel the ongoing animation
+  const cancelAnimation = () => {
     if (containerRef.current) {
+      gsap.killTweensOf(containerRef.current); // This kills any existing tweens (animations)
+    }
+  };
+
+  const animateOut = (direction, onComplete) => {
+    if (containerRef.current) {
+      setIsAnimating(true);
       gsap.to(containerRef.current, {
-        x: direction * -500, // Move far left (-500) or far right (500)
-        opacity: 0,
+        opacity: 0, // Fade out the current image
+        x: direction * 500, // Slide out far left (-500) or far right (500)
         duration: 0.5,
         ease: "power2.inOut",
-        onComplete,
+        onComplete: () => {
+          onComplete(); // After index update, call the completion function
+        }
       });
     }
   };
 
-  useEffect(() => {
+  const animateIn = (direction) => {
     if (containerRef.current) {
       gsap.fromTo(
         containerRef.current,
-        { x: direction * 500, opacity: 0 }, // New image enters from right (500) or left (-500)
-        { x: 0, opacity: 1, duration: 0.5, ease: "power2.inOut" }
+        { opacity: 0, x: direction * -500 }, // New image enters from right (500) or left (-500)
+        { opacity: 1, x: 0, duration: 0.5, ease: "power2.inOut", onComplete: () => setIsAnimating(false) }
       );
     }
-  }, [currentIndex, direction]);
+  };
 
-  useEffect(() => {
+  const resetAutoSlide = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current); // Clear previous interval
+    }
+
     intervalRef.current = setInterval(() => {
       handleNext();
     }, 5000);
+  };
 
-    return () => clearInterval(intervalRef.current); // Cleanup on unmount
+  useEffect(() => {
+    // Initialize the auto-slide interval on mount
+    resetAutoSlide();
+
+    return () => {
+      clearInterval(intervalRef.current); // Cleanup on unmount
+    };
   }, []);
 
   return (
@@ -64,13 +97,12 @@ const NewInCarousel = () => {
       {/* Image & Title */}
       <div ref={containerRef} className="flex items-center w-full flex-col">
         <img
+          ref={imgRef}
           src={images[currentIndex]}
           className="w-1/2 mx-auto rounded-3xl"
           alt="New In"
         />
-        <div class='py-5'>
-          {newInTitlewLists[currentIndex]}
-        </div>
+        <div className="py-5">{newInTitlewLists[currentIndex]}</div>
       </div>
 
       {/* Next Icon */}

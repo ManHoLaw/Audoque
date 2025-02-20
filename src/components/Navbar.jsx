@@ -131,7 +131,7 @@ const Navbar = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen }) =>
                                 {navLists.map((nav, i) => (
                                     <Link
                                         key={i}
-                                        to={'/'}
+                                        to={'/menu'}
                                         className={`menu-item block w-full text-left cursor-pointer p-3 text-lg rounded-md ${
                                             selection === i ? 'bg-[#6d8d95] text-white/50' : 'bg-[#DCB465]'
                                         }`}
