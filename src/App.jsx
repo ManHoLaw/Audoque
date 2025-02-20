@@ -11,6 +11,7 @@ import Member from "./components/Member";
 import Promotion from "./components/Promotion";
 import Delivery from "./components/Delivery";
 import Order from "./components/order";
+import Homepage from "./components/Homepage";
 
 const App = () => {
   const [selection, setSelection] = useState(null);
@@ -33,7 +34,7 @@ const App = () => {
 
 const MainContent = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen, popupCake, setPopupCake }) => {
   const location = useLocation();
-  const isCakeDetailPage = location.pathname.startsWith("/cake/");
+  const isCakeDetailPage = location.pathname.startsWith("/menu");
 
   return (
     <main className="bg-[#dbafaf] min-h-screen w-full flex flex-col">
@@ -48,7 +49,7 @@ const MainContent = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen,
       />
 
       {/* Hide Navbar on Cake Detail page */}
-      {!isCakeDetailPage && (
+      {isCakeDetailPage && (
         <Navbar
           selection={selection}
           setSelection={setSelection}
@@ -60,8 +61,14 @@ const MainContent = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen,
         <Popup closePopup={() => setPopupCake(null)} cake={popupCake} />
       )}
       <Routes>
+        <Route 
+          path='/'
+          element={
+            <Homepage />
+          }
+        />
         <Route
-          path="/"
+          path="/menu"
           element={
             <Highlights
               selection={selection}

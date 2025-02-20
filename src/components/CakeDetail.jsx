@@ -19,8 +19,7 @@ const CakeDetail = () => {
             <h1 className="text-xl font-bold">{cake.title}</h1>
         </div>
 
-
-        <div className='flex-1'>
+        <div className='flex justify-center'>
             <img src={cake.img} alt={cake.title} className="max-w-100 max-sm:max-w-75 object-cover my-4 rounded-xl" />
         </div>
         <div class='flex justify-end'>
@@ -36,11 +35,11 @@ const CakeDetail = () => {
             Order Form
           </Link>
         </div>
-        <div className='flex-col gap-3 flex px-6 max-sm:w-full max-sm:max-w-screen w-[calc(100vw*2/5)] my-3 overflow-hidden'>
+        <div className='flex-col gap-3 flex px-6 max-sm:w-full max-sm:max-w-screen w-[calc(100vw*2/5)] my-3 overflow-hidden sm:text-2xl'>
             <p className='break-words whitespace-normal'>
               {cake.description}
             </p>
-            <div class='text-xs'>
+            <div class='text-xs sm:text-xl'>
               Allergens: Gluten, Eggs, Milk, Nuts
             </div>
         </div>

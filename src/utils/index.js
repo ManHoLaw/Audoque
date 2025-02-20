@@ -1,9 +1,9 @@
-import banner from "/Audoque_banner.png"
-import banner_s from "/Audoque_banner_small.png"
-import bag from "/bag.svg"
-import search from "/search.svg"
-import menu from "/menu.svg"
-import closeIcon from "/close_icon.svg"
+import banner from "/icons/Audoque_banner.png"
+import banner_s from "/icons/Audoque_banner_small.png"
+import bag from "/icons/bag.svg"
+import search from "/icons/search.svg"
+import menu from "/icons/menu.svg"
+import closeIcon from "/icons/close_icon.svg"
 
 export const bannerImg = banner
 export const bannersmallImg = banner_s
@@ -37,3 +37,7 @@ export const originbcakeImg = originbcake
 export const matcharollImg = matcharoll
 export const oolongarollImg = oolongaroll
 export const sesamerollImg = sesameroll
+
+import homepagevp from "/homepage/homepage_1.jpg"
+
+export const homepageImg = homepagevp
