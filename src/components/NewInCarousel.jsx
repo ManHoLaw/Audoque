@@ -96,7 +96,7 @@ const NewInCarousel = () => {
 
       {/* Image & Title */}
       <div ref={containerRef} className="flex items-center w-full p-5">
-        <div class='w-[400px] h-[400px] flex justify-center flex-col items-center'>
+        <div class='w-[500px] h-[500px] flex justify-center flex-col items-center'>
           <img
             ref={imgRef}
             src={images[currentIndex]}

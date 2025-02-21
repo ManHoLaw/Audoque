@@ -13,7 +13,7 @@ const Highlights = ({ selection, popupCake, setPopupCake }) => {
 
   return (
     <section className="flex justify-center overflow-hidden h-full pt-5">
-      <div className="w-5/6 grid grid-cols-2 md:grid-cols-3 content-evenly gap-4 sm:py-10 pb-10">
+      <div className="w-3/4 grid grid-cols-2 md:grid-cols-3 content-evenly gap-4 sm:py-10 pb-10">
         {cakes
           .filter((cake) => {
             if (isChefSelection) return cake.chefSelection;

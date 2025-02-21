@@ -45,13 +45,13 @@ const Homepage = () => {
       </div>
 
       {/* Instagram Section */}
-      <div class='flex flex-col items-center py-5 w-full text-xl sm:text-3xl' >
+      <div class='flex flex-col items-center py-5 w-full text-lg sm:text-xl' >
         Follow us
         <a href="https://www.instagram.com/audoque_patisserie/" class='flex items-center'>
           {/* <img src={instaIconImg} class='w-8 mx-1' /> */}
           <p class='inline pb-3'>@audoque_patisserie</p>
         </a>
-        <div class='rounded-xl max-w-1/2 overflow-hidden' >
+        <div class='rounded-xl overflow-hidden' >
           <iframe 
             src="https://www.instagram.com/audoque_patisserie/embed" 
             width="100%" 
