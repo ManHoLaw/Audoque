@@ -34,20 +34,20 @@ const App = () => {
 
 const MainContent = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen, popupCake, setPopupCake }) => {
   const location = useLocation();
-  
 
   return (
-    <main className="bg-[#dbafaf] min-h-screen w-full flex flex-col">
-      <Title
-        isSidebarOpen={isSidebarOpen}
-        setIsSidebarOpen={setIsSidebarOpen}
-        popupCake={popupCake}
-        setPopupCake={setPopupCake}
-      />
-      <Logo 
-        setSelection={setSelection}
-      />
-
+    <main className="min-h-screen w-full flex flex-col">
+      <div class='bg-[#dbafaf]'>
+        <Title
+          isSidebarOpen={isSidebarOpen}
+          setIsSidebarOpen={setIsSidebarOpen}
+          popupCake={popupCake}
+          setPopupCake={setPopupCake}
+        />
+        <Logo 
+          setSelection={setSelection}
+        />
+      </div>
       {/* Hide Navbar on Cake Detail page */}
       <Navbar
           selection={selection}
@@ -86,8 +86,6 @@ const MainContent = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen,
         <Route path="order-form"
         element={<Order />} />
       </Routes>
-
-      <div className="flex-grow"></div>
       <Footer />
     </main>
   );

@@ -35,7 +35,7 @@ const Homepage = () => {
         {/* New In Section  */}
         <div className="relative bg-white h-auto flex justify-center flex-col">
           <p className="text-xl pt-10 mx-auto sm:text-3xl font-fraunces">New In</p>
-          <div className="relative w-full flex justify-center items-center min-h-[400px]">
+          <div className="relative w-full flex justify-center items-center py-10">
             <NewInCarousel />
           </div>
         </div>
@@ -45,21 +45,22 @@ const Homepage = () => {
       </div>
 
       {/* Instagram Section */}
-      <div class='flex flex-col items-center py-5 w-full text-xl sm:text-3xl'>
+      <div class='flex flex-col items-center py-5 w-full text-xl sm:text-3xl' >
         Follow us
         <a href="https://www.instagram.com/audoque_patisserie/" class='flex items-center'>
           {/* <img src={instaIconImg} class='w-8 mx-1' /> */}
           <p class='inline pb-3'>@audoque_patisserie</p>
         </a>
-        <div class='rounded-xl max-w-1/2overflow-hidden' >
+        <div class='rounded-xl max-w-1/2 overflow-hidden' >
           <iframe 
             src="https://www.instagram.com/audoque_patisserie/embed" 
             width="100%" 
             height="600" 
-            frameborder="0" 
+            frameborder="1" 
             marginheight="0" 
             marginwidth="0"
-            class='rounded-2xl overflow-hidden'
+            scrolling='no'
+            class='rounded-2xl overflow-hidden border-2 p-5'
             >
             Loading…
           </iframe>

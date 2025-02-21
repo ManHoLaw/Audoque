@@ -27,6 +27,14 @@ const CakeDetail = () => {
 
   return (
     <section className="px-5 flex flex-col z-0">
+      <div class='flex justify-start cursor-pointer'>
+        <Link 
+          to={'/menu'}
+          class='p-2 bg-black text-white mt-5 ml-30'
+        >
+          Back
+        </Link>
+      </div>
       <div className="mx-auto pt-5">
         {/* Large Preview Image */}
         <div className=" ">
@@ -58,7 +66,7 @@ const CakeDetail = () => {
           </h2>
       </div>
       
-      <div className='flex flex-col gap-3 px-6 w-[40vw my-3 overflow-hidden sm:text-2xl max-sm:w-full'>
+      <div className='flex flex-col gap-3 px-6 w-[40vw my-3 overflow-hidden sm:text-2xl max-sm:w-full ml-30'>
           <div class='text-xs sm:text-xl'>
             Fillings: {getFilling(cake.flavour)}
           </div>
@@ -79,7 +87,7 @@ const CakeDetail = () => {
       <div class='flex justify-end'>
         <Link
             to={'/order-form'}
-            className='flex cursor-pointer p-2 bg-black text-white'
+            className='flex cursor-pointer p-2 bg-black text-white mr-30 mb-5'
             onClick={(e) => {
                 setTimeout(() => {
                     navigate('/order-form');

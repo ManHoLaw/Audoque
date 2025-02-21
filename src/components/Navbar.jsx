@@ -113,7 +113,7 @@ const Navbar = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen }) =>
     }, [selection]);
 
     return (
-        <section className="bg-[#dbafaf] flex justify-center items-center w-full">
+        <section className="bg-[#dbafaf] flex justify-center items-center w-full border-b-2">
             {/* Side bar */}
             {isSidebarOpen && (
                 <button className="z-3 fixed inset-0 bg-gray-900/50 flex justify-start" onClick={() => setIsSidebarOpen(false)}>
@@ -172,20 +172,22 @@ const Navbar = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen }) =>
 
 
             {/* Normal */}
-            {isCakeDetailPage && (<div className={`${isSidebarOpen ? 'hidden' : 'grid'} max-sm:hidden sm:grid-flow-col auto-cols-fr max-md:gap-5 text-xl gap-6`}>
-                {navLists.map((nav, i) => (
-                    <button
-                        key={i}
-                        className="menu-item cursor-pointer py-2 w-auto relative z-0"
-                        onClick={(e) => handleClick(i, e.currentTarget)}
-                        onMouseEnter={(e) => handleMouseEnter(i, e.currentTarget)}
-                        onMouseLeave={(e) => handleMouseLeave(i, e.currentTarget)}
-                    >
-                        {nav}
-                        <span className="underline absolute bottom-0 left-0 h-0.5 w-full bg-[#4e5f63] scale-x-0 origin-left transition-transform duration-500 ease-out" />
-                    </button>
-                ))}
-            </div>)}
+            <div class=''>
+                {isCakeDetailPage && (<div className={`${isSidebarOpen ? 'hidden' : 'grid'} max-sm:hidden sm:grid-flow-col auto-cols-fr max-md:gap-5 text-xl gap-6 `}>
+                    {navLists.map((nav, i) => (
+                        <button
+                            key={i}
+                            className="menu-item cursor-pointer py-2 w-auto relative z-0"
+                            onClick={(e) => handleClick(i, e.currentTarget)}
+                            onMouseEnter={(e) => handleMouseEnter(i, e.currentTarget)}
+                            onMouseLeave={(e) => handleMouseLeave(i, e.currentTarget)}
+                        >
+                            {nav}
+                            <span className="underline absolute bottom-0 left-0 h-0.5 w-full bg-[#4e5f63] scale-x-0 origin-left transition-transform duration-500 ease-out" />
+                        </button>
+                    ))}
+                </div>)}
+            </div>
         </section>
     );
 };

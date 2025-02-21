@@ -88,25 +88,27 @@ const NewInCarousel = () => {
   }, []);
 
   return (
-    <div className="relative bg-white h-auto flex flex-row justify-center p-5 items-center overflow-hidden">
+    <div className="relative bg-white h-auto flex flex-row justify-center max-w-[700px] p-5 items-center overflow-hidden">
       {/* Back Icon */}
-      <button onClick={handlePrev}>
+      <button onClick={handlePrev} class='flex-shrink-0'>
         <img src={backIconImg} className="w-5" alt="Back" />
       </button>
 
       {/* Image & Title */}
-      <div ref={containerRef} className="flex items-center w-full flex-col">
-        <img
-          ref={imgRef}
-          src={images[currentIndex]}
-          className="w-1/2 mx-auto rounded-3xl"
-          alt="New In"
-        />
-        <div className="py-5">{newInTitlewLists[currentIndex]}</div>
+      <div ref={containerRef} className="flex items-center w-full p-5">
+        <div class='w-[400px] h-[400px] flex justify-center flex-col items-center'>
+          <img
+            ref={imgRef}
+            src={images[currentIndex]}
+            className="max-w-full max-h-full object-contain rounded-3xl"
+            alt="New In"
+          />
+          <div className="py-5 text-center">{newInTitlewLists[currentIndex]}</div>
+        </div>
       </div>
 
       {/* Next Icon */}
-      <button onClick={handleNext}>
+      <button onClick={handleNext} class='flex-shrink-0'>
         <img src={nextIconImg} className="w-5" alt="Next" />
       </button>
     </div>
