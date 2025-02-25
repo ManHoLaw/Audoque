@@ -58,7 +58,7 @@ const MainContent = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen,
       {popupCake && popupCake.title && (
         <Popup closePopup={() => setPopupCake(null)} cake={popupCake} />
       )}
-      <Routes>
+      <Routes >
         <Route 
           path='/'
           element={

@@ -55,7 +55,7 @@ const Homepage = () => {
           <iframe 
             src="https://www.instagram.com/audoque_patisserie/embed" 
             width="100%" 
-            height="600" 
+            height="500" 
             frameborder="1" 
             marginheight="0" 
             marginwidth="0"
