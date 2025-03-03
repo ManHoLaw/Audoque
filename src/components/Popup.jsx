@@ -21,7 +21,7 @@ const Popup = memo(({ closePopup, cake }) => {
     }, [closePopup]);
 
   return (
-    <div class="fixed inset-0 flex items-center justify-center transition-none " onClick={closePopup}>
+    <div class="fixed inset-0 z-1 flex items-center justify-center transition-none " onClick={closePopup}>
       <div class="bg-white p-5 rounded-xl shadow-lg" onClick={(e)=>e.stopPropagation()}>
         <img src={closeIconImg} width={10} onClick={closePopup} className="cursor-pointer pb-3" />
         

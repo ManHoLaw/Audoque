@@ -17,6 +17,7 @@ const App = () => {
   const [selection, setSelection] = useState(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [popupCake, setPopupCake] = useState(false);
+  const [isAnimating , setIsAnimating] = useState(true)
 
   return (
     <Router>
@@ -27,12 +28,14 @@ const App = () => {
         setIsSidebarOpen={setIsSidebarOpen}
         popupCake={popupCake}
         setPopupCake={setPopupCake}
+        isAnimating={isAnimating}
+        setIsAnimating={setIsAnimating}
       />
     </Router>
   );
 };
 
-const MainContent = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen, popupCake, setPopupCake }) => {
+const MainContent = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen, popupCake, setPopupCake, isAnimating, setIsAnimating }) => {
   const location = useLocation();
 
   return (
@@ -46,6 +49,8 @@ const MainContent = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen,
         />
         <Logo 
           setSelection={setSelection}
+          isAnimating={isAnimating}
+          setIsAnimating={setIsAnimating}
         />
       </div>
       {/* Hide Navbar on Cake Detail page */}
@@ -62,7 +67,10 @@ const MainContent = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen,
         <Route 
           path='/'
           element={
-            <Homepage />
+            <Homepage 
+             isAnimating={isAnimating}
+             setIsAnimating={setIsAnimating}
+            />
           }
         />
         <Route

@@ -1,15 +1,35 @@
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { bannerImg, bannersmallImg } from "../utils"
+import { useEffect, useRef, useState } from "react"
+import gsap from "gsap"
 
-const Logo = ({ setSelection }) => {
+const Logo = ({ setSelection, isAnimating, setIsAnimating }) => {
     const navigate = useNavigate()
+    const location = useLocation()
     const handleLogoClick = () => {
+        if (isAnimating) return
         setSelection(null)
         navigate('/')
     }
+    const isHomePage = location.pathname === '/'
+
+    const logoRef = useRef(null)
+    useEffect(()=>{
+        if (isHomePage){
+            gsap.fromTo(
+                logoRef.current,
+                {scale:2,y:'50vh', opacity:1},
+                {scale:1, y:0, opacity:1, duration:1.5, delay:2, ease:'power2.out',
+                    onComplete: () => setIsAnimating(false)
+                }
+            )
+        }else{
+            setIsAnimating(false)
+        }
+    },[isHomePage])
 
   return (
-    <h1 class='w-full flex justify-evenly'>
+    <h1 ref={logoRef} class='w-full flex justify-evenly top-0 left-0 right-0 z-1'>
         <div class='flex items-baseline max-sm:justify-start max-sm:flex-none max-sm:hidden p-5'>
             <button class='cursor-pointer rounded-3xl' onClick={handleLogoClick}>
                 <img src={bannerImg} alt='Au_banner' width={300}/>
