@@ -7,19 +7,18 @@ const Homepage = ({ isAnimating, setIsAnimating }) => {
   // If isAnimating is true, don't render the Homepage content yet
   if (isAnimating) {
     return (
-      <div className="w-full h-screen flex justify-center items-center bg-white">
-        
+      <div className="w-full flex justify-center items-center opacity-0 animate-fade-in duration-500">
       </div>
     );
   }
 
   return (
-    <section className="flex flex-col justify-center items-center w-full z-[-1]">
+    <section className="flex flex-col justify-center items-center w-full z-0">
       <div className="w-full">
         {/* Homepage Image  */}
         <div className="bg-white relative w-full flex justify-center overflow-hidden">
           <img src={homepageImg} className="absolute inset-0 w-full h-full object-cover object-center" />
-          <div className="relative flex flex-col justify-center items-center rounded-2xl w-full py-20">
+          <div className="relative flex flex-col justify-center items-center rounded-2xl w-full py-20 min-h-[600px]">
             {/* Centered Welcome Text */}
             <div className="text-xl sm:text-3xl flex flex-col items-center justify-center text-center w-full">
               <p className="font-fraunces">WELCOME</p>

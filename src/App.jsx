@@ -39,14 +39,20 @@ const MainContent = ({ selection, setSelection, isSidebarOpen, setIsSidebarOpen,
   const location = useLocation();
 
   return (
-    <main className="min-h-screen w-full flex flex-col">
+    <main className="min-h-screen w-full flex flex-col relative">
+      {isAnimating && (
+        <div class='bg-[#dbafaf] h-full w-full fixed duration-1000'
+        style={{ opacity: isAnimating ? 1 : 0 }}
+        />
+      )}
       <div class='bg-[#dbafaf]'>
+        {!isAnimating && (
         <Title
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}
           popupCake={popupCake}
           setPopupCake={setPopupCake}
-        />
+        />)}
         <Logo 
           setSelection={setSelection}
           isAnimating={isAnimating}
