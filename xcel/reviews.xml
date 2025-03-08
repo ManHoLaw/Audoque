@@ -1,11 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<reviews>
-    
-
-            <review>
-                <name>Eric </name>
-                <rating>5</rating>
-                <comment>Taste good</comment>
-                <date>2025-03-08</date>
-            </review>
-        </reviews>
+<reviews>        </reviews>
