@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { homepageImg } from '../utils';
 import NewInCarousel from './NewInCarousel';
+import Reviews from './Reviews';
 
 const Homepage = ({ isAnimating, setIsAnimating }) => {
 
@@ -66,6 +67,9 @@ const Homepage = ({ isAnimating, setIsAnimating }) => {
           >
             Loading…
           </iframe>
+        </div>
+        <div class='mt-10'>
+          <Reviews />
         </div>
       </div>
 
