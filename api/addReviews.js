@@ -14,7 +14,8 @@ export default async function handler(req, res) {
 
     try {
         // Fetch existing XML file from GitHub
-        const response = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${FILE_PATH}`, {
+        
+        const response = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/xcel/${FILE_PATH}`, {
             headers: { Authorization: `token ${GITHUB_TOKEN}` },
         });
 
@@ -35,7 +36,7 @@ export default async function handler(req, res) {
         const encodedContent = Buffer.from(updatedXml).toString("base64");
 
         // Push updated XML to GitHub
-        await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${FILE_PATH}`, {
+        await fetch(`https://api.github.com/repos/${GITHUB_REPO}/xcel/${FILE_PATH}`, {
             method: "PUT",
             headers: {
                 Authorization: `token ${GITHUB_TOKEN}`,
