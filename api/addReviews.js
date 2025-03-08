@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     const { name, rating, comment } = req.body;
     const date = new Date().toISOString().split("T")[0];
 
-    const GITHUB_REPO = "your-username/your-repo";
+    const GITHUB_REPO = "ManHoLaw/Audoque";
     const FILE_PATH = "reviews.xml";
     const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
