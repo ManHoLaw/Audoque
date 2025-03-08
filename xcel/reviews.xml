@@ -6,4 +6,11 @@
         <comment>Amazing cake!</comment>
         <date>2025-03-08</date>
     </review>
-</reviews>
+
+            <review>
+                <name>Eric</name>
+                <rating>5</rating>
+                <comment>Good</comment>
+                <date>2025-03-08</date>
+            </review>
+        </reviews>
