@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<reviews>        </reviews>
+<reviews>        
+            <review>
+                <name>Daniel </name>
+                <rating>5</rating>
+                <comment>Testing - Daniel </comment>
+                <date>2025-03-27</date>
+            </review>
+        </reviews>
