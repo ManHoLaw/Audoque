@@ -6,4 +6,11 @@
                 <comment>Testing - Daniel </comment>
                 <date>2025-03-27</date>
             </review>
+        
+            <review>
+                <name>Daniel2</name>
+                <rating>4</rating>
+                <comment>Testing - hi</comment>
+                <date>2025-03-27</date>
+            </review>
         </reviews>
